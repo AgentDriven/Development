@@ -1,4 +1,4 @@
-# Development - Agent Driven Development (ADD)
+# Agent Driven Development (ADD)
 
 > **Editor:** Everything, except where explicitly labeled (**Editor:**), was written by an AI Agent (Cursor/Claude) with human prompting.
 
@@ -11,7 +11,7 @@ curl -o .cursorrules https://agentdriven.dev/cursorrules.md
 
 ## Overview
 
-Agent Driven Development (ADD) is a structured approach to software development that leverages AI agents and human developers working in tandem, emphasizing a phased, incremental development process with clear milestones tracked through semantic versioning. The methodology establishes a systematic, regimented process through a set of rules (.cursorrules) that enforce thorough planning, documentation, testing, and strict version control, with the AI Agent implementing all aspects under the supervision and direction of the human Editor.
+Agent Driven Development (ADD) is a structured approach to software development that leverages AI agents and human developers working in tandem, emphasizing a phased, incremental development process with clear milestones tracked through semantic versioning. The methodology establishes a systematic, regimented process through a set of rules ([.cursorrules](https://agentdriven.dev/cursorrules.md)) that enforce thorough planning, documentation, testing, and strict version control, with the AI Agent implementing all aspects under the supervision and direction of the human Editor.
 
 ADD establishes a clear division of responsibilities:
 
@@ -174,9 +174,9 @@ git commit -m "feat: Initialize ADD project from template"
 
 The ADD methodology is documented in several key files:
 
-- `.cursorrules`: Guidelines for AI agents working on the project
+- [`.cursorrules`](https://agentdriven.dev/cursorrules.md): Guidelines for AI agents working on the project
 - `docs/project.md`: Project manifest and overview
-- `docs/phases-detailed.md`: Detailed definitions of each development phase
+- `docs/phases.md`: Detailed definitions of each development phase
 - `docs/journal.md`: Development history and decision log
 - `docs/plans/`: Directory for planning documents and roadmaps
 - `LICENSE`: MIT License for the project

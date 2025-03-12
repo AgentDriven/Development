@@ -6,7 +6,7 @@ description: A structured methodology for AI-assisted software development
 
 # Agent Driven Development (ADD)
 
-Agent Driven Development (ADD) is a structured approach to software development that leverages AI agents and human developers working in tandem. The methodology establishes a systematic, regimented process through a set of rules (`.cursorrules`) that enforce thorough planning, documentation, testing, and strict version control, with the AI Agent implementing all aspects under the supervision and direction of the human Editor.
+Agent Driven Development (ADD) is a structured approach to software development that leverages AI agents and human developers working in tandem. The methodology establishes a systematic, regimented process through a set of rules ([`.cursorrules`](cursorrules.md)) that enforce thorough planning, documentation, testing, and strict version control, with the AI Agent implementing all aspects under the supervision and direction of the human Editor.
 
 > **Editor:** Everything, except where explicitly labeled (**Editor:**), was written by an AI Agent (Cursor/Claude) with human prompting.
 
@@ -22,7 +22,7 @@ curl -o .cursorrules https://agentdriven.dev/cursorrules.md
 
 At its core, ADD is defined by three key elements that work together:
 
-1. **Enforced Git Workflow**: The `.cursorrules` file mandates specific Git practices that both the AI Agent and human Editor must follow, ensuring consistent version control and project history.
+1. **Enforced Git Workflow**: The [`.cursorrules`](cursorrules.md) file mandates specific Git practices that both the AI Agent and human Editor must follow, ensuring consistent version control and project history.
 
 2. **Phased Development with Semantic Versioning**: Development progresses through clearly defined phases, each with specific deliverables and completion criteria, tracked through semantic versioning.
 
@@ -30,7 +30,7 @@ At its core, ADD is defined by three key elements that work together:
 
 ## The `.cursorrules` File: Enforcing the Methodology
 
-The `.cursorrules` file is the cornerstone of ADD, containing mandatory rules that AI assistants must follow. This file:
+The [`.cursorrules`](cursorrules.md) file is the cornerstone of ADD, containing mandatory rules that AI assistants must follow. This file:
 
 - Defines the Git workflow that must be followed
 - Establishes the phased development approach
@@ -42,7 +42,7 @@ When an AI assistant (like Claude or GPT) encounters this file in your repositor
 
 ## Git Workflow: The Foundation of ADD
 
-The ADD Git workflow is strictly enforced by the `.cursorrules` file:
+The ADD Git workflow is strictly enforced by the [`.cursorrules`](cursorrules.md) file:
 
 - **Status Verification**: The Agent must always check git status before committing
 - **Clean Working Directory**: No unstaged changes should remain when committing
@@ -97,7 +97,6 @@ ADD establishes a clear division of responsibilities:
 - Feedback on implementations
 - Domain expertise
 
-
 ## Documentation
 
 - [Methodology Overview](methodology.html) - Core principles and Agent-Editor relationship
@@ -132,4 +131,7 @@ project-root/
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/AgentDriven/Development/blob/main/LICENSE) file for details.
+
+```
+
 ```
