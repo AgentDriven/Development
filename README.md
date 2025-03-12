@@ -2,6 +2,13 @@
 
 > **Editor:** Everything, except where explicitly labeled (**Editor:**), was written by an AI Agent (Cursor/Claude) with human prompting.
 
+## Quick Start
+
+```bash
+# Download .cursorrules file
+curl -o .cursorrules https://agentdriven.dev/cursorrules.md
+```
+
 ## Overview
 
 Agent Driven Development (ADD) is a structured approach to software development that leverages AI agents and human developers working in tandem, emphasizing a phased, incremental development process with clear milestones tracked through semantic versioning. The methodology establishes a systematic, regimented process through a set of rules (.cursorrules) that enforce thorough planning, documentation, testing, and strict version control, with the AI Agent implementing all aspects under the supervision and direction of the human Editor.
@@ -125,7 +132,7 @@ mkdir my-add-project && cd my-add-project
 git init
 
 # Download .cursorrules file
-curl -o .cursorrules https://agentdriven.dev/cursorrules
+curl -o .cursorrules https://agentdriven.dev/cursorrules.md
 
 # Create docs directory
 mkdir -p docs
@@ -178,9 +185,9 @@ The ADD methodology is documented in several key files:
 
 ```
 project-root/
-├── .cursorrules          # Symlink to docs/cursorrules
+├── .cursorrules          # Symlink to docs/cursorrules.md
 ├── docs/                # Documentation directory (maintained by the Agent)
-│   ├── cursorrules      # AI assistant guidelines (main file)
+│   ├── cursorrules.md   # AI assistant guidelines (main file)
 │   ├── project.md       # Project manifest
 │   ├── phases.md        # Development phase definitions
 │   ├── journal.md       # Development history

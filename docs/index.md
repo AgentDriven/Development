@@ -10,6 +10,14 @@ Agent Driven Development (ADD) is a structured approach to software development 
 
 > **Editor:** Everything, except where explicitly labeled (**Editor:**), was written by an AI Agent (Cursor/Claude) with human prompting.
 
+## Usage
+
+Copy the Agent Driven Development `.cursorrules` file to your project.
+
+```
+curl -o .cursorrules https://agentdriven.dev/cursorrules.md
+```
+
 ## What Makes ADD Different
 
 At its core, ADD is defined by three key elements that work together:
@@ -89,48 +97,6 @@ ADD establishes a clear division of responsibilities:
 - Feedback on implementations
 - Domain expertise
 
-## Getting Started
-
-There are several ways to implement Agent Driven Development in your own projects:
-
-### Option 1: Direct Download
-
-```bash
-# Create a new directory for your project
-mkdir my-add-project && cd my-add-project
-
-# Initialize git repository
-git init
-
-# Download .cursorrules file
-curl -o .cursorrules https://agentdriven.dev/.cursorrules
-
-# Create docs directory
-mkdir -p docs
-
-# Initialize with basic README
-echo "# My ADD Project" > README.md
-
-# Make initial commit
-git add .
-git commit -m "feat: Initialize ADD project"
-```
-
-### Option 2: Clone Template
-
-```bash
-# Clone the Development repository
-git clone https://github.com/AgentDriven/Development.git my-add-project
-
-# Remove the existing git history
-cd my-add-project
-rm -rf .git
-
-# Initialize a new git repository
-git init
-git add .
-git commit -m "feat: Initialize ADD project from template"
-```
 
 ## Documentation
 
@@ -140,23 +106,25 @@ git commit -m "feat: Initialize ADD project from template"
 - [Development Journal](journal.html) - History of development sessions and decisions
 - [Roadmap](plans/roadmap.html) - Future plans and goals
 - [GitHub Repository](https://github.com/AgentDriven/Development)
-- [.cursorrules File](https://agentdriven.dev/cursorrules) - The core file that guides AI agents
+- [.cursorrules File](https://agentdriven.dev/cursorrules.md) - The core file that guides AI agents
 
 ## Project Structure
 
 ```
+
 project-root/
-├── .cursorrules          # Symlink to docs/cursorrules
-├── docs/                # Documentation directory (maintained by the Agent)
-│   ├── cursorrules      # AI assistant guidelines (main file)
-│   ├── project.md       # Project manifest
-│   ├── phases.md        # Development phase definitions
-│   ├── journal.md       # Development history
-│   └── plans/           # Planning documents
-├── .gitignore           # Git ignore rules
-├── .editorconfig        # Editor configuration
-├── LICENSE              # MIT License
-└── README.md            # Project overview
+├── .cursorrules # Symlink to docs/cursorrules.md
+├── docs/ # Documentation directory (maintained by the Agent)
+│ ├── cursorrules.md # AI assistant guidelines (main file)
+│ ├── project.md # Project manifest
+│ ├── phases.md # Development phase definitions
+│ ├── journal.md # Development history
+│ └── plans/ # Planning documents
+├── .gitignore # Git ignore rules
+├── .editorconfig # Editor configuration
+├── LICENSE # MIT License
+└── README.md # Project overview
+
 ```
 
 > **Editor:** The `docs` directory is the Agent's responsibility to maintain. All documentation and planning files should be kept here, making it easier for both humans and AI to find and update project information.
@@ -164,3 +132,4 @@ project-root/
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/AgentDriven/Development/blob/main/LICENSE) file for details.
+```

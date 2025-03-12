@@ -36,4 +36,6 @@ nav:
   - title: Development Journal
     url: /journal.html
   - title: Roadmap
-    url: /plans/roadmap.html 
+    url: /plans/roadmap.html
+  - title: .cursorrules
+    url: /cursorrules.md 
