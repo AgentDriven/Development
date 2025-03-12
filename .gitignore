@@ -121,4 +121,9 @@ target/
 # Misc
 .cache/
 .history/
-.sass-cache/ 
+.sass-cache/
+
+# Jekyll site
+docs/_site/
+docs/.sass-cache/
+docs/Gemfile.lock 
