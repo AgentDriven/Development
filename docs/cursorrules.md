@@ -1,6 +1,7 @@
 // "ADD" .cursorrules Agent Driven Development
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
+// Version: 0.0.12 - Last updated: 2024-03-12
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
@@ -14,6 +15,7 @@
 4. **NEVER** skip initialization sequence
 5. **NEVER** commit changes across different development phases
 6. **ALWAYS** get explicit permission before advancing to next phase
+7. **ALWAYS** update version numbers in all files before cutting a new tag
 
 ## 🚨 INITIALIZATION SEQUENCE
 
@@ -75,6 +77,13 @@ Each phase should be completed sequentially when applicable:
 5. **VERIFY**: `git status` to confirm staging
 6. **COMMIT**: `git commit -m "type: message"`
 7. **CONFIRM**: `git status` to verify clean state
+
+**BEFORE TAGGING:**
+
+1. **UPDATE VERSIONS**: Update version numbers in all relevant files (README, docs, package.json, etc.)
+2. **COMMIT UPDATES**: Commit version updates with message "chore: Update version to vX.Y.Z"
+3. **CREATE TAG**: Create an annotated tag with `git tag -a vX.Y.Z -m "Description of release"`
+4. **PUSH**: Push both commits and tags to remote repository
 
 **EXAMPLE:**
 
@@ -168,6 +177,12 @@ git tag -a v0.0.1 -m "Initial project setup"
 - Some projects may not require all phases (e.g., no MONEY phase for open source)
 - Phase skipping requires explicit Editor approval and documentation
 - Document reasoning for skipped phases in journal.md
+
+**ALWAYS SYNCHRONIZE VERSION NUMBERS BEFORE TAGGING**
+
+- Update version numbers in all relevant files (README, docs, package.json, etc.)
+- Commit version updates before creating a new tag
+- Use consistent version format across all files
 
 **PROCESS IS MORE IMPORTANT THAN SPEED**
 
