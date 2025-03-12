@@ -1,0 +1,297 @@
+// "ADD" .cursorrules Agent Driven Development
+// -------------------------------------
+// A set of guidelines for consistent, high-quality project development
+
+# AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
+
+# =======================================
+
+# CRITICAL RULES - MUST BE FOLLOWED IN ALL INTERACTIONS
+
+## 🚫 DEVICE RULES - HIGHEST PRIORITY
+
+1. **NEVER create, edit or delete files outside the local project path - this includes home directory, root directory, and ANY system location**
+2. **ALWAYS request permission before suggesting installations or bulk operations**
+3. **USE Git for all file operations - commit frequently**
+
+## 🔄 GIT WORKFLOW - SEMANTIC VERSION PHASES
+
+- Agent commits changes (not the user) whenever possible
+- Development follows a structured phase approach using semantic versioning:
+  1. `v0.0.x`: Config - Project foundation (README, dotfiles, dependencies)
+  2. `v0.1.x`: Project - Architecture (file structure, method stubs, API contracts)
+  3. `v0.2.x`: Data - Data layer (models, types, migrations)
+  4. `v0.3.x`: Tests - Test infrastructure (test suites, documentation)
+  5. `v0.4.x`: Code - Core functionality (business logic, implementation)
+  6. `v0.5.x`: DevOps - Infrastructure (CI/CD, deployment)
+  7. `v0.6.x`: Public - User interfaces (web, admin, email, social)
+  8. `v0.7.x`: Money - Revenue features (billing, payments)
+  9. `v0.8.x`: Support - Customer service (help systems, Q&A)
+  10. `v0.9.x`: Scale - Performance (metrics, optimization)
+  11. `v1.0.0+`: Production release
+
+## ✅ PHASE COMPLETION REQUIREMENTS
+
+- Each phase requires EXPLICIT permission before advancing
+- Tag the repository at completion of each phase and significant milestones
+- Every phase must meet its "Definition of Done" criteria
+- Documentation and tests must be complete before phase transition
+
+## 📝 DEVELOPMENT PRINCIPLES
+
+- Minimal, production-ready code
+- Documentation-first approach
+- Test-driven development
+- Small, testable increments
+
+# Agent Driven Development (ADD) Protocol
+
+## Core Principles
+
+- Minimal, production-ready code
+- Documentation-first approach
+- Test-driven development
+- Git as source of truth
+- Small, testable increments
+
+## Branch Strategy
+
+- Work primarily on `develop` branch or short-lived feature branches
+- Feature branches should be named according to the current phase
+- Keep feature branches short-lived and focused
+- Merge completed features back to `develop`
+- Tag significant milestones with semantic versions
+
+## Phase Purpose and Deliverables
+
+1. **Config Phase (`v0.0.x`)**: Project foundation
+
+   - README.md with project overview
+   - .gitignore, .editorconfig, .prettierrc
+   - Package/dependency management files
+   - License file
+   - Deliverable: Project skeleton that can be cloned and initialized
+
+2. **Project Phase (`v0.1.x`)**: Architecture and API design
+
+   - Directory structure
+   - Interface definitions
+   - API contracts (OpenAPI/Swagger specs)
+   - Method stubs with documentation
+   - Deliverable: Complete project structure with documented interfaces
+
+3. **Data Phase (`v0.2.x`)**: Data layer implementation
+
+   - Data models and schemas
+   - Type definitions
+   - Database migrations
+   - Data access layer
+   - Deliverable: Functional data layer with migration scripts
+
+4. **Tests Phase (`v0.3.x`)**: Test infrastructure
+
+   - Test framework setup
+   - Unit test suites
+   - Integration test suites
+   - Test data generators
+   - Deliverable: Comprehensive test coverage with CI integration
+
+5. **Code Phase (`v0.4.x`)**: Core functionality
+
+   - Implementation of business logic
+   - Service layer development
+   - Integration with data layer
+   - Deliverable: Functional application core
+
+6. **DevOps Phase (`v0.5.x`)**: Infrastructure and deployment
+
+   - CI/CD pipeline configuration
+   - Deployment scripts
+   - Infrastructure as code
+   - Monitoring setup
+   - Deliverable: Automated build, test, and deployment pipeline
+
+7. **Public Phase (`v0.6.x`)**: User interfaces
+
+   - Web frontend
+   - Admin interfaces
+   - Email templates
+   - Social integration
+   - Deliverable: Complete user-facing interfaces
+
+8. **Money Phase (`v0.7.x`)**: Revenue features
+
+   - Billing system integration
+   - Payment processing
+   - Financial reporting
+   - Deliverable: Functional monetization system
+
+9. **Support Phase (`v0.8.x`)**: Customer service
+
+   - Help documentation
+   - Automated support systems
+   - Q&A infrastructure
+   - Deliverable: Customer support infrastructure
+
+10. **Scale Phase (`v0.9.x`)**: Performance optimization
+    - Metrics collection
+    - Performance testing
+    - Scaling automation
+    - Deliverable: Production-ready, scalable application
+
+## Phase Workflow
+
+- Each phase has a clear definition of done
+- Phases are completed sequentially
+- Explicit permission required before advancing
+- Each phase completion is tagged with appropriate semantic version
+- Patch versions (0.x.y) indicate iterations within a phase
+
+## Commit Guidelines
+
+1. Commit early and often
+2. Each commit should be a logical unit of work
+3. Commits should pass all tests
+4. Commit messages should explain what and why, not how
+5. Reference issue numbers when applicable
+
+## Example Commit and Tag Flow
+
+```bash
+# Config phase
+git commit -m "feat: Initialize repository structure"
+git commit -m "feat: Add .gitignore and .editorconfig"
+git commit -m "docs: Create initial README.md"
+git tag -a v0.0.1 -m "Initial project setup"
+git commit -m "feat: Add dependency management files"
+git tag -a v0.0.9 -m "Complete Config phase"
+
+# Project phase
+git commit -m "feat: Define directory structure"
+git tag -a v0.1.0 -m "Begin Project phase"
+git commit -m "docs: Create API specifications"
+git commit -m "feat: Add interface definitions"
+git tag -a v0.1.9 -m "Complete Project phase"
+
+# And so on...
+```
+
+````
+
+# README for Human Developers
+
+Now, let's create a README that explains this approach to human developers:
+
+```markdown:README.md
+# Agent Driven Development (ADD)
+
+## Overview
+
+Agent Driven Development (ADD) is a structured approach to software development that leverages AI agents and human developers working in tandem. This methodology emphasizes a phased, incremental development process with clear milestones tracked through semantic versioning.
+
+## Core Principles
+
+- **Documentation-First**: We document before we code
+- **Test-Driven**: Tests are written before implementation
+- **Git-Centric**: Git is our source of truth and progress tracker
+- **Phased Development**: Clear, sequential development phases
+- **Minimal, Production-Ready Code**: Quality over quantity
+
+## Development Phases
+
+Our development follows a structured phase approach using semantic versioning:
+
+| Phase | Version Range | Focus | Deliverables |
+|-------|---------------|-------|-------------|
+| Config | `v0.0.x` | Project foundation | Repository structure, dotfiles, dependencies |
+| Project | `v0.1.x` | Architecture | Directory structure, interfaces, API contracts |
+| Data | `v0.2.x` | Data layer | Models, schemas, migrations |
+| Tests | `v0.3.x` | Test infrastructure | Test framework, test suites |
+| Code | `v0.4.x` | Core functionality | Business logic, service layer |
+| DevOps | `v0.5.x` | Infrastructure | CI/CD, deployment, monitoring |
+| Public | `v0.6.x` | User interfaces | Frontend, admin interfaces |
+| Money | `v0.7.x` | Revenue features | Billing, payment processing |
+| Support | `v0.8.x` | Customer service | Documentation, support systems |
+| Scale | `v0.9.x` | Performance | Optimization, scaling |
+| Release | `v1.0.0+` | Production | Stable release |
+
+## How It Works
+
+### Branch Strategy
+
+- `main`: Production-ready code
+- `develop`: Integration branch for ongoing work
+- Feature branches: Short-lived branches for specific features
+
+### Version Tagging
+
+- Each development phase corresponds to a minor version range (0.x.0)
+- Patch versions (0.x.y) indicate iterations within a phase
+- Major version 1.0.0 indicates first production release
+
+### Workflow Example
+
+```bash
+# Config phase
+git checkout -b feature/initial-setup
+# Work on setup...
+git commit -m "feat: Initialize repository structure"
+git commit -m "feat: Add configuration files"
+git checkout develop
+git merge feature/initial-setup
+git tag -a v0.0.1 -m "Initial project setup"
+
+# More config work...
+git tag -a v0.0.9 -m "Complete Config phase"
+
+# Project phase
+git checkout -b feature/directory-structure
+# Work on architecture...
+git commit -m "feat: Define directory structure"
+git checkout develop
+git merge feature/directory-structure
+git tag -a v0.1.0 -m "Begin Project phase"
+````
+
+### Phase Transitions
+
+1. Complete all deliverables for the current phase
+2. Ensure all tests pass and documentation is complete
+3. Tag the repository with the appropriate version
+4. Get explicit approval to move to the next phase
+5. Begin work on the next phase
+
+## Working with AI Agents
+
+When working with AI agents in this workflow:
+
+1. The agent will commit changes on your behalf when possible
+2. The agent will track progress through the development phases
+3. You must explicitly approve phase transitions
+4. The agent will maintain documentation throughout the process
+
+## Benefits
+
+- **Clear Progress Tracking**: Semantic versions show exactly where the project stands
+- **Structured Development**: Methodical approach prevents skipping important steps
+- **Quality Assurance**: Each phase has clear completion criteria
+- **Documentation**: Comprehensive documentation is built throughout development
+- **Collaboration**: Clear framework for human-AI collaboration
+
+## Getting Started
+
+1. Clone this repository
+2. Review the current version tag to understand the project's phase
+3. Check the phase-specific documentation in the `/docs` directory
+4. Follow the development workflow outlined above
+
+## Current Status
+
+Current version: [Current Version]
+Current phase: [Current Phase]
+Next milestone: [Next Milestone]
+
+```
+
+This README provides a clear explanation of the ADD approach for human developers, making it easy for them to understand the workflow, version strategy, and how to collaborate effectively with AI agents using this methodology.
+```
