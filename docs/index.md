@@ -140,7 +140,7 @@ git commit -m "feat: Initialize ADD project from template"
 - [Development Journal](journal.html) - History of development sessions and decisions
 - [Roadmap](plans/roadmap.html) - Future plans and goals
 - [GitHub Repository](https://github.com/AgentDriven/Development)
-- [.cursorrules File](https://agentdriven.dev/.cursorrules) - The core file that guides AI agents
+- [.cursorrules File](https://agentdriven.dev/cursorrules) - The core file that guides AI agents
 
 ## Project Structure
 

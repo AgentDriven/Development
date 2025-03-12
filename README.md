@@ -125,7 +125,7 @@ mkdir my-add-project && cd my-add-project
 git init
 
 # Download .cursorrules file
-curl -o .cursorrules https://agentdriven.dev/.cursorrules
+curl -o .cursorrules https://agentdriven.dev/cursorrules
 
 # Create docs directory
 mkdir -p docs
