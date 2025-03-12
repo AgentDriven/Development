@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
+theme: just-the-docs
 title: Agent Driven Development
 description: A structured methodology for AI-assisted software development
 show_downloads: true
@@ -9,7 +9,21 @@ github:
   owner_url: https://github.com/AgentDriven
   owner_name: AgentDriven
 
-# Navigation
+# Color scheme
+color_scheme: light
+
+# Enable search
+search_enabled: true
+
+# Aux links for the upper right navigation
+aux_links:
+  "AgentDriven on GitHub":
+    - "https://github.com/AgentDriven/Development"
+
+# Makes Aux links open in a new tab
+aux_links_new_tab: true
+
+# Navigation structure
 nav:
   - title: Home
     url: /
