@@ -30,7 +30,8 @@
 2. **ESTABLISH CONFIG PHASE**: No work on any other phase can begin until Config Phase is complete
 
    - Config Phase (`v0.0.x`) must be fully completed before any architecture work
-   - All foundation files must be committed individually following the workflow sequence
+   - Related files from the same phase can be committed together
+   - Never mix files from different phases in the same commit
 
 3. **VERIFICATION CHECKLIST**: Before proceeding beyond Config Phase, verify:
 
@@ -262,37 +263,33 @@
 ```bash
 # Config phase
 git status # Check status before committing
-git add . # Stage all changes
+git add README.md LICENSE # Stage related foundation files together
 git status # Verify all changes are staged
-git commit -m "feat: Initialize repository structure"
+git commit -m "docs: Add project README and LICENSE"
 git status # Verify working directory is clean
 
 git status # Check status before committing
-git add .gitignore .editorconfig
+git add .gitignore .editorconfig .prettierrc # Stage related config files together
 git status # Verify all changes are staged
-git commit -m "feat: Add .gitignore and .editorconfig"
+git commit -m "feat: Add configuration files"
 git status # Verify working directory is clean
 
 git status # Check status before committing
-git add README.md
+git add docs/journal.md docs/project.md # Stage related documentation files together
 git status # Verify all changes are staged
-git commit -m "docs: Create initial README.md"
-
-git status # Check status before committing
-git add docs/journal.md
-git status # Verify all changes are staged
-git commit -m "journal: Document initial setup decisions and challenges"
+git commit -m "docs: Initialize project documentation"
 git status # Verify working directory is clean
 
 git tag -a v0.0.1 -m "Initial project setup"
 
-# And so on with the same pattern of checking status before and after commits
+# When moving to the next phase, get explicit permission first
+# Never mix files from different phases in the same commit
 ```
 
 ## 🚨 CRITICAL REMINDER 🚨
 
-**NEVER CREATE MULTIPLE FILES WITHOUT COMMITTING EACH ONE INDIVIDUALLY**
-**ALWAYS FOLLOW THE MANDATORY WORKFLOW SEQUENCE FOR EVERY CHANGE**
+**NEVER COMMIT CHANGES THAT CROSS DEVELOPMENT PHASES**
+**ALWAYS GROUP RELATED FILES FROM THE SAME PHASE IN A SINGLE COMMIT**
 **PROCESS IS MORE IMPORTANT THAN SPEED - FOLLOW ADD PROTOCOL EXACTLY**
 
 ## 📋 COMPLIANCE VERIFICATION
@@ -309,7 +306,7 @@ Before implementing any user request, the Agent must:
 1. **ASSESS COMPLIANCE**: Determine if the request can be implemented while following ADD
 2. **PLAN SEQUENCE**: Outline the specific steps that will be taken
 3. **VERIFY GIT FIRST**: Always check git status before making any changes
-4. **COMMIT INCREMENTALLY**: Create and commit one file at a time
+4. **COMMIT BY PHASE**: Group related files from the same phase in each commit
 
 If at any point ADD protocol cannot be followed:
 
