@@ -1,0 +1,25 @@
+theme: jekyll-theme-cayman
+title: Agent Driven Development
+description: A structured methodology for AI-assisted software development
+show_downloads: true
+github:
+  repository_url: https://github.com/AgentDriven/Development
+  zip_url: https://github.com/AgentDriven/Development/archive/refs/heads/main.zip
+  tar_url: https://github.com/AgentDriven/Development/archive/refs/heads/main.tar.gz
+  owner_url: https://github.com/AgentDriven
+  owner_name: AgentDriven
+
+# Navigation
+nav:
+  - title: Home
+    url: /
+  - title: Methodology
+    url: /methodology.html
+  - title: Phases
+    url: /phases.html
+  - title: Project Status
+    url: /project.html
+  - title: Development Journal
+    url: /journal.html
+  - title: Roadmap
+    url: /plans/roadmap.html 

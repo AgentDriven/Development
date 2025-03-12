@@ -108,7 +108,7 @@ When working with AI agents in this workflow:
 
 1. Clone this repository
 2. Review the current version tag to understand the project's phase
-3. Check the phase-specific documentation in the `.agent` directory
+3. Check the phase-specific documentation in the `docs` directory
 4. Follow the development workflow outlined above
 
 ## Using ADD in Your Projects
@@ -124,11 +124,11 @@ mkdir my-add-project && cd my-add-project
 # Initialize git repository
 git init
 
-# Create .agent directory
-mkdir -p .agent
-
 # Download .cursorrules file
-curl -o .agent/.cursorrules https://raw.githubusercontent.com/AgentDriven/Development/main/.agent/.cursorrules
+curl -o .cursorrules https://raw.githubusercontent.com/AgentDriven/Development/main/.cursorrules
+
+# Create docs directory
+mkdir -p docs
 
 # Initialize with basic README
 echo "# My ADD Project" > README.md
@@ -157,8 +157,8 @@ git commit -m "feat: Initialize ADD project from template"
 ### Option 3: Manual Setup
 
 1. Create a new repository
-2. Create an `.agent` directory
-3. Copy the `.cursorrules` file from this repository into your `.agent` directory
+2. Create a `docs` directory
+3. Copy the `.cursorrules` file from this repository into your root directory
 4. Initialize your project following the Config phase guidelines
 
 > **Editor:** Once the .cursorrules file is in place, your AI assistant will automatically follow the ADD methodology when working in your repository. Make sure to introduce the assistant to the project and ask it to help you complete the Config phase first.
@@ -167,34 +167,48 @@ git commit -m "feat: Initialize ADD project from template"
 
 The ADD methodology is documented in several key files:
 
-- `.agent/.cursorrules`: Guidelines for AI agents working on the project
-- `.agent/PROJECT.md`: Project manifest and overview
-- `.agent/PHASES.md`: Detailed definitions of each development phase
-- `.agent/JOURNAL.md`: Development history and decision log
-- `.agent/plans/`: Directory for planning documents and roadmaps
+- `.cursorrules`: Guidelines for AI agents working on the project
+- `docs/project.md`: Project manifest and overview
+- `docs/phases-detailed.md`: Detailed definitions of each development phase
+- `docs/journal.md`: Development history and decision log
+- `docs/plans/`: Directory for planning documents and roadmaps
 - `LICENSE`: MIT License for the project
 
 ## Project Structure
 
 ```
 project-root/
-├── .agent/               # Agent configuration directory
-│   ├── .cursorrules      # AI assistant guidelines
-│   ├── PROJECT.md        # Project manifest
-│   ├── PHASES.md         # Development phase definitions
-│   ├── JOURNAL.md        # Development history
-│   └── plans/            # Planning documents
-├── .gitignore            # Git ignore rules
-├── .editorconfig         # Editor configuration
-├── LICENSE               # MIT License
-└── README.md             # This file
+├── .cursorrules         # AI assistant guidelines (main file)
+├── docs/                # Documentation directory (maintained by the Agent)
+│   ├── project.md       # Project manifest
+│   ├── phases-detailed.md # Detailed phase definitions
+│   ├── journal.md       # Development history
+│   └── plans/           # Planning documents
+├── .gitignore           # Git ignore rules
+├── .editorconfig        # Editor configuration
+├── LICENSE              # MIT License
+└── README.md            # This file
 ```
+
+> **Editor:** The `docs` directory is the Agent's responsibility to maintain. All documentation and planning files should be kept here, making it easier for both humans and AI to find and update project information.
 
 ## Current Status
 
-Current version: v0.0.1
+Current version: v0.0.6
 Current phase: Config
 Next milestone: Complete Config phase (v0.0.9)
+
+## Documentation
+
+For comprehensive documentation on the ADD methodology, visit our [GitHub Pages site](https://agentdriven.github.io/Development/).
+
+The documentation includes:
+
+- Detailed methodology overview and Agent-Editor relationship
+- Development phases explanation
+- Project status and implementation plan
+- Development journal and history
+- Installation and usage instructions
 
 ## License
 
