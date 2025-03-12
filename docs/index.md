@@ -146,8 +146,9 @@ git commit -m "feat: Initialize ADD project from template"
 
 ```
 project-root/
+├── .cursorrules          # Symlink to docs/cursorrules
 ├── docs/                # Documentation directory (maintained by the Agent)
-│   ├── .cursorrules     # AI assistant guidelines (main file)
+│   ├── cursorrules      # AI assistant guidelines (main file)
 │   ├── project.md       # Project manifest
 │   ├── phases.md        # Development phase definitions
 │   ├── journal.md       # Development history
