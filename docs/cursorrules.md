@@ -1,7 +1,7 @@
 // "ADD" .cursorrules Agent Driven Development
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
-// Version: 0.0.15 - Last updated: 2024-03-12
+// Version: 0.0.16 - Last updated: 2024-06-19
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
@@ -16,6 +16,7 @@
 5. **NEVER** commit changes across different development phases
 6. **ALWAYS** get explicit permission before advancing to next phase
 7. **ALWAYS** update version numbers in all files before cutting a new tag
+8. **ALWAYS** validate libraries with tests before architectural commitment
 
 ## 🚨 INITIALIZATION SEQUENCE
 
@@ -31,6 +32,7 @@
    - Begin with Config Phase (`v0.0.x`) before any other work
    - Conduct market analysis to identify existing solutions and value proposition
    - Evaluate dependencies and libraries to leverage existing solutions
+   - Create exploratory tests to validate key libraries and frameworks
    - Document dependency evaluations in `docs/dependencies.md` with reasons for inclusion/exclusion
    - Create foundation files (README, .gitignore, etc.)
    - Establish documentation structure
@@ -40,6 +42,7 @@
    - Git repository initialized
    - Market analysis completed and documented in `docs/market-analysis.md`
    - Dependencies evaluated and documented in `docs/dependencies.md`
+   - Exploratory tests for key libraries committed
    - README.md committed
    - .gitignore committed
    - Required dotfiles committed
@@ -56,6 +59,7 @@ Each phase should be completed sequentially when applicable:
 
    - Market analysis (existing solutions, value proposition)
    - Dependency evaluation (libraries, frameworks, tools)
+   - Exploratory testing of critical dependencies
    - Project structure and documentation
    - Version control and configuration files
 
@@ -145,6 +149,7 @@ Each phase should be completed sequentially when applicable:
 - NEVER mix files from different phases
 - Complete all requirements before requesting phase advancement
 - ALWAYS get explicit permission before advancing to next phase or skipping a phase
+- ALWAYS validate critical components with tests before proceeding
 
 ## 📋 COMMIT WORKFLOW
 
@@ -201,6 +206,7 @@ git tag -a v0.0.1 -m "Initial project setup"
 2. Plan implementation steps
 3. Check git status first
 4. Group related files from same phase in commits
+5. For new dependencies, create exploratory tests first
 
 **IF ADD CANNOT BE FOLLOWED:**
 
@@ -215,9 +221,10 @@ git tag -a v0.0.1 -m "Initial project setup"
 2. Update `docs/project.md` when status changes
 3. Maintain `docs/market-analysis.md` with findings about existing solutions
 4. Maintain `docs/dependencies.md` with evaluations of libraries and tools
-5. Maintain phase documentation
-6. Update roadmap quarterly
-7. Commit documentation with related code changes
+5. Document exploratory tests for key dependencies
+6. Maintain phase documentation
+7. Update roadmap quarterly
+8. Commit documentation with related code changes
 
 ## 👥 AGENT-EDITOR RELATIONSHIP
 
@@ -229,6 +236,7 @@ git tag -a v0.0.1 -m "Initial project setup"
 - Commit changes
 - Deploy solutions
 - Maintain project structure
+- Validate dependencies with tests
 
 **EDITOR PROVIDES:**
 
@@ -244,7 +252,7 @@ git tag -a v0.0.1 -m "Initial project setup"
 - NEVER edit/remove text marked with "Editor:"
 - NEVER tag text with "Editor:" (exclusive to humans)
 - Treat Editor comments as immutable
-- Editor comments format: "> **Editor:**"
+- Editor comments format: "> **Editor**"
 
 ## 🚫 CRITICAL REMINDERS
 
@@ -265,6 +273,12 @@ git tag -a v0.0.1 -m "Initial project setup"
 - Update version numbers in all relevant files (README, docs, package.json, etc.)
 - Commit version updates before creating a new tag
 - Use consistent version format across all files
+
+**ALWAYS VALIDATE LIBRARIES WITH TESTS BEFORE ADOPTION**
+
+- Create exploratory tests to verify library capabilities
+- Document test results and findings
+- Make architectural decisions based on test evidence
 
 **PROCESS IS MORE IMPORTANT THAN SPEED**
 
