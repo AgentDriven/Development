@@ -125,7 +125,7 @@ mkdir my-add-project && cd my-add-project
 git init
 
 # Download .cursorrules file
-curl -o .cursorrules https://raw.githubusercontent.com/AgentDriven/Development/main/.cursorrules
+curl -o .cursorrules https://agentdriven.dev/.cursorrules
 
 # Create docs directory
 mkdir -p docs
@@ -178,10 +178,10 @@ The ADD methodology is documented in several key files:
 
 ```
 project-root/
-├── .cursorrules         # AI assistant guidelines (main file)
 ├── docs/                # Documentation directory (maintained by the Agent)
+│   ├── .cursorrules     # AI assistant guidelines (main file)
 │   ├── project.md       # Project manifest
-│   ├── phases-detailed.md # Detailed phase definitions
+│   ├── phases.md        # Development phase definitions
 │   ├── journal.md       # Development history
 │   └── plans/           # Planning documents
 ├── .gitignore           # Git ignore rules

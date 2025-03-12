@@ -103,7 +103,7 @@ mkdir my-add-project && cd my-add-project
 git init
 
 # Download .cursorrules file
-curl -o .cursorrules https://raw.githubusercontent.com/AgentDriven/Development/main/.cursorrules
+curl -o .cursorrules https://agentdriven.dev/.cursorrules
 
 # Create docs directory
 mkdir -p docs
@@ -140,14 +140,14 @@ git commit -m "feat: Initialize ADD project from template"
 - [Development Journal](journal.html) - History of development sessions and decisions
 - [Roadmap](plans/roadmap.html) - Future plans and goals
 - [GitHub Repository](https://github.com/AgentDriven/Development)
-- [.cursorrules File](https://github.com/AgentDriven/Development/blob/main/.cursorrules) - The core file that guides AI agents
+- [.cursorrules File](https://agentdriven.dev/.cursorrules) - The core file that guides AI agents
 
 ## Project Structure
 
 ```
 project-root/
-├── .cursorrules         # AI assistant guidelines (main file)
 ├── docs/                # Documentation directory (maintained by the Agent)
+│   ├── .cursorrules     # AI assistant guidelines (main file)
 │   ├── project.md       # Project manifest
 │   ├── phases.md        # Development phase definitions
 │   ├── journal.md       # Development history
