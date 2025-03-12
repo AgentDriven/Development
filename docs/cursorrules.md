@@ -1,7 +1,7 @@
 // "ADD" .cursorrules Agent Driven Development
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
-// Version: 0.0.14 - Last updated: 2024-03-12
+// Version: 0.0.15 - Last updated: 2024-03-12
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
@@ -60,15 +60,84 @@ Each phase should be completed sequentially when applicable:
    - Version control and configuration files
 
 2. `v0.1.x`: **PROJECT** - Architecture design
+
+   - Directory structure
+   - Interface definitions
+   - API contracts (OpenAPI/Swagger specs)
+   - Method stubs with documentation
+   - Class/component relationships
+
 3. `v0.2.x`: **TESTS** - Test infrastructure for API contracts
+
+   - Test framework setup
+   - Unit test suites
+   - Integration test suites
+   - Test data generators
+   - Mocks and fixtures
+
 4. `v0.3.x`: **DATA** - Data layer implementation
+
+   - Data models and schemas
+   - Type definitions
+   - Database migrations
+   - Data access layer
+   - Validation rules
+
 5. `v0.4.x`: **CODE** - Core functionality
+
+   - Implementation of business logic
+   - Service layer development
+   - Integration with data layer
+   - Error handling
+   - Performance considerations
+
 6. `v0.5.x`: **DEVOPS** - Infrastructure
+
+   - CI/CD pipeline configuration
+   - Deployment scripts
+   - Infrastructure as code
+   - Monitoring setup
+   - Security considerations
+
 7. `v0.6.x`: **PUBLIC** - User interfaces
+
+   - Web frontend
+   - Admin interfaces
+   - Email templates
+   - Social integration
+   - Responsive design
+
 8. `v0.7.x`: **MONEY** - Revenue features
+
+   - Billing system integration
+   - Payment processing
+   - Financial reporting
+   - Subscription management
+   - Invoicing
+
 9. `v0.8.x`: **SUPPORT** - Customer service
+
+   - Help documentation
+   - Automated support systems
+   - Q&A infrastructure
+   - Feedback mechanisms
+   - User onboarding
+
 10. `v0.9.x`: **SCALE** - Performance optimization
+
+    - Metrics collection
+    - Performance testing
+    - Scaling automation
+    - Load balancing
+    - Caching strategies
+
 11. `v1.0.0+`: **PRODUCTION** - Release
+
+    - Final testing
+    - Documentation completion
+    - Release notes
+    - Marketing materials
+    - Launch strategy
 
 **FOR EVERY PHASE:**
 
