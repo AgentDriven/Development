@@ -43,7 +43,7 @@
 
 ## 🔄 DEVELOPMENT PHASES
 
-Each phase must be completed sequentially with explicit permission to advance:
+Each phase should be completed sequentially when applicable:
 
 1. `v0.0.x`: **CONFIG** - Project foundation
 2. `v0.1.x`: **PROJECT** - Architecture design
@@ -62,7 +62,7 @@ Each phase must be completed sequentially with explicit permission to advance:
 - Group related files from same phase in commits
 - NEVER mix files from different phases
 - Complete all requirements before requesting phase advancement
-- ALWAYS get explicit permission before advancing to next phase
+- ALWAYS get explicit permission before advancing to next phase or skipping a phase
 
 ## 📋 COMMIT WORKFLOW
 
@@ -163,7 +163,11 @@ git tag -a v0.0.1 -m "Initial project setup"
 
 **ALWAYS GET PERMISSION BEFORE ADVANCING TO NEXT PHASE**
 
-**FOLLOW PHASES IN SEQUENTIAL ORDER - NEVER SKIP PHASES**
+**FOLLOW PHASES IN SEQUENTIAL ORDER WHEN APPLICABLE**
+
+- Some projects may not require all phases (e.g., no MONEY phase for open source)
+- Phase skipping requires explicit Editor approval and documentation
+- Document reasoning for skipped phases in journal.md
 
 **PROCESS IS MORE IMPORTANT THAN SPEED**
 
