@@ -93,6 +93,64 @@
 - Create initial template repositories with the updated structure
 - Begin planning for Project phase (v0.1.x)
 
+## Session 4: Editor Comment System and Usage Instructions
+
+**Date**: March 12, 2025
+
+### Key Actions
+
+- Established a formal system for Editor comments in documentation
+  - Implemented the `> **Editor:**` format for human-written content
+  - Added a dedicated "Editor Comments" section to the README
+  - Created visual distinction between AI-generated and human content
+- Enhanced the README overview with more detailed explanation
+  - Added clear definition of Agent and Editor responsibilities
+  - Included Editor's perspective on the ADD methodology
+  - Emphasized the collaborative nature of the development process
+- Added usage instructions for implementing ADD in new projects
+  - Created Option 1: Direct Download with curl command
+  - Created Option 2: Clone Template approach
+  - Created Option 3: Manual Setup instructions
+  - Added Editor note about getting started with the Config phase
+
+### Decisions Made
+
+- Standardized on `> **Editor:**` prefix for human-written comments
+- Used blockquote formatting to make Editor comments visually distinct
+- Chose to provide multiple installation methods for different user preferences
+- Updated version to v0.0.3 to reflect these significant enhancements
+
+### Next Actions
+
+- Define standard templates for different project types
+- Create documentation for onboarding new developers to the methodology
+- Develop tooling to support the ADD workflow
+- Establish metrics for measuring development progress
+
+## Session 5: Critical Rules for Editor Comments
+
+**Date**: March 12, 2025
+
+### Key Actions
+
+- Added critical rules to the `.agent/.cursorrules` file regarding Editor comments:
+  - Established absolute prohibition on editing or removing Editor-tagged text without permission
+  - Established absolute prohibition on AI agents tagging any text with "Editor:" prefix
+  - Clarified that Editor comments are exclusively for human editors
+  - Reinforced the formatting standard for Editor comments
+
+### Decisions Made
+
+- Elevated Editor comment rules to "CRITICAL" status in the .cursorrules file
+- Placed these rules in the AGENT-EDITOR RELATIONSHIP section to emphasize their importance
+- Used strong language ("NEVER EVER") to underscore the absolute nature of these restrictions
+
+### Next Actions
+
+- Continue with previously defined next steps
+- Ensure all documentation follows the Editor comment guidelines
+- Review existing documentation to verify compliance with these rules
+
 ## Future Sessions Planning
 
 - Define standard templates for different project types

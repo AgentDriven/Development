@@ -48,6 +48,11 @@
   - Approval for phase transitions
   - Feedback on implementations
   - Domain expertise
+- **Editor Comments - CRITICAL RULES:**
+  - **NEVER EVER edit or remove text marked with "Editor:" without explicit permission**
+  - **NEVER EVER tag any text with "Editor:" - this prefix is EXCLUSIVELY for human editors**
+  - **Treat all Editor comments as immutable unless specifically instructed to modify them**
+  - **Editor comments are formatted with "> **Editor:**" and should be preserved exactly as written**
 - **The Agent must always:**
   - Seek permission for significant changes
   - Present options when multiple approaches exist

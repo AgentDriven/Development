@@ -1,12 +1,17 @@
 # Development - Agent Driven Development (ADD)
 
-Editor: Everything, except where explicitly labeled, is written by an AI Agent (Cursor/Claude). I was frustrated, and prompted it to develop a better workflow
-
-I was excited to expirement with the Agent feature, only to have the project go off the rails once it got to complex.  This approach to software development, is to leverage an AI Agent to enforce a regemented product development process, requiring thorough planning, documentation, testing, and a strict semantic versioning and gitworkflow.  To keep both the Agent, and the human Editor, focused, on the same page, and working together with a clear purpose, plan 
+> **Editor:** Everything, except where explicitly labeled (**Editor:**), was written by an AI Agent (Cursor/Claude) with human prompting.
 
 ## Overview
 
-Agent Driven Development (ADD) is a structured approach to software development that leverages AI agents and human developers working in tandem. This methodology emphasizes a phased, incremental development process with clear milestones tracked through semantic versioning.
+Agent Driven Development (ADD) is a structured approach to software development that leverages AI agents and human developers working in tandem, emphasizing a phased, incremental development process with clear milestones tracked through semantic versioning. The methodology establishes a systematic, regimented process through a set of rules (.cursorrules) that enforce thorough planning, documentation, testing, and strict version control, with the AI Agent implementing all aspects under the supervision and direction of the human Editor.
+
+ADD establishes a clear division of responsibilities:
+
+- **AI Agent**: Handles implementation details, documentation, testing, and code management
+- **Human Editor**: Provides direction, domain expertise, and makes key decisions
+
+The methodology is designed to maximize the strengths of both AI and human collaborators while maintaining high quality standards through structured phases and clear documentation.
 
 Developed by the [AgentDriven](https://github.com/AgentDriven) organization, this approach provides a framework for consistent, high-quality software delivery through well-defined development phases.
 
@@ -106,6 +111,58 @@ When working with AI agents in this workflow:
 3. Check the phase-specific documentation in the `.agent` directory
 4. Follow the development workflow outlined above
 
+## Using ADD in Your Projects
+
+There are several ways to implement Agent Driven Development in your own projects:
+
+### Option 1: Direct Download
+
+```bash
+# Create a new directory for your project
+mkdir my-add-project && cd my-add-project
+
+# Initialize git repository
+git init
+
+# Create .agent directory
+mkdir -p .agent
+
+# Download .cursorrules file
+curl -o .agent/.cursorrules https://raw.githubusercontent.com/AgentDriven/Development/main/.agent/.cursorrules
+
+# Initialize with basic README
+echo "# My ADD Project" > README.md
+
+# Make initial commit
+git add .
+git commit -m "feat: Initialize ADD project"
+```
+
+### Option 2: Clone Template
+
+```bash
+# Clone the Development repository
+git clone https://github.com/AgentDriven/Development.git my-add-project
+
+# Remove the existing git history
+cd my-add-project
+rm -rf .git
+
+# Initialize a new git repository
+git init
+git add .
+git commit -m "feat: Initialize ADD project from template"
+```
+
+### Option 3: Manual Setup
+
+1. Create a new repository
+2. Create an `.agent` directory
+3. Copy the `.cursorrules` file from this repository into your `.agent` directory
+4. Initialize your project following the Config phase guidelines
+
+> **Editor:** Once the .cursorrules file is in place, your AI assistant will automatically follow the ADD methodology when working in your repository. Make sure to introduce the assistant to the project and ask it to help you complete the Config phase first.
+
 ## Project Documentation
 
 The ADD methodology is documented in several key files:
@@ -142,3 +199,11 @@ Next milestone: Complete Config phase (v0.0.9)
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Editor Comments
+
+Throughout this documentation, you'll find comments prefixed with **Editor:**. These are written by human editors to provide additional context, insights, or clarifications that may be helpful for other humans. The standard format is:
+
+> **Editor:** [Comment text here]
+
+This helps distinguish between AI-generated content and human additions while maintaining a cohesive document.

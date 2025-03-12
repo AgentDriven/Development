@@ -4,9 +4,9 @@
 
 **Organization**: [AgentDriven](https://github.com/AgentDriven)  
 **License**: MIT  
-**Current Version**: v0.0.1  
+**Current Version**: v0.0.4  
 **Current Phase**: Config  
-**Last Updated**: March 11, 2025
+**Last Updated**: March 12, 2025
 
 ## Project Vision
 
@@ -18,6 +18,8 @@ AgentDriven Development (ADD) is a structured methodology for AI-assisted softwa
 - **March 11, 2025**: Initial methodology defined
 - **March 11, 2025**: Config phase initiated
 - **March 11, 2025**: Enhanced workflow with explicit Agent-Editor relationship defined
+- **March 12, 2025**: Added Editor comment system and usage instructions
+- **March 12, 2025**: Established critical rules for Editor comments
 
 ## Implementation Plan
 
@@ -32,6 +34,8 @@ AgentDriven Development (ADD) is a structured methodology for AI-assisted softwa
    - `.agent/plans/roadmap.md` ✅
    - `.gitignore` ✅
    - `.editorconfig` ✅
+   - Editor comment system ✅
+   - Usage instructions ✅
 
 2. **Next Steps**:
    - Create template repositories for different project types
@@ -50,12 +54,17 @@ AgentDriven Development (ADD) is a structured methodology for AI-assisted softwa
 - Organizing configuration files in `.agent` directory for better project structure
 - Using JOURNAL.md instead of CHANGELOG.md for richer development history
 - Establishing clear Agent-Editor relationship with defined responsibilities
+- Standardizing Editor comments with `> **Editor:**` format for human-written content
+- Providing multiple installation methods for ADD implementation in new projects
+- Establishing critical rules prohibiting AI agents from modifying or creating Editor comments
 
 ## Agent-Editor Relationship
 
 - **Agent**: Responsible for implementation (documentation, tests, code, commits, deployment)
 - **Editor**: Provides direction, domain expertise, and approval for phase transitions
 - Both parties collaborate throughout the development process with clearly defined roles
+- Editor comments are clearly marked in documentation with the `> **Editor:**` prefix
+- Editor comments are exclusively written by humans and must never be modified without permission
 
 ## Reference Links
 
