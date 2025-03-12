@@ -1,7 +1,7 @@
 // "ADD" .cursorrules Agent Driven Development
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
-// Version: 0.0.13 - Last updated: 2024-03-12
+// Version: 0.0.14 - Last updated: 2024-03-12
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
@@ -29,12 +29,17 @@
 2. **START WITH CONFIG PHASE**:
 
    - Begin with Config Phase (`v0.0.x`) before any other work
+   - Conduct market analysis to identify existing solutions and value proposition
+   - Evaluate dependencies and libraries to leverage existing solutions
+   - Document dependency evaluations in `docs/dependencies.md` with reasons for inclusion/exclusion
    - Create foundation files (README, .gitignore, etc.)
    - Establish documentation structure
 
 3. **VERIFY CONFIG COMPLETION**:
 
    - Git repository initialized
+   - Market analysis completed and documented in `docs/market-analysis.md`
+   - Dependencies evaluated and documented in `docs/dependencies.md`
    - README.md committed
    - .gitignore committed
    - Required dotfiles committed
@@ -48,6 +53,12 @@
 Each phase should be completed sequentially when applicable:
 
 1. `v0.0.x`: **CONFIG** - Project foundation
+
+   - Market analysis (existing solutions, value proposition)
+   - Dependency evaluation (libraries, frameworks, tools)
+   - Project structure and documentation
+   - Version control and configuration files
+
 2. `v0.1.x`: **PROJECT** - Architecture design
 3. `v0.2.x`: **TESTS** - Test infrastructure for API contracts
 4. `v0.3.x`: **DATA** - Data layer implementation
@@ -133,9 +144,11 @@ git tag -a v0.0.1 -m "Initial project setup"
 
 1. Update `docs/journal.md` with each session
 2. Update `docs/project.md` when status changes
-3. Maintain phase documentation
-4. Update roadmap quarterly
-5. Commit documentation with related code changes
+3. Maintain `docs/market-analysis.md` with findings about existing solutions
+4. Maintain `docs/dependencies.md` with evaluations of libraries and tools
+5. Maintain phase documentation
+6. Update roadmap quarterly
+7. Commit documentation with related code changes
 
 ## 👥 AGENT-EDITOR RELATIONSHIP
 
