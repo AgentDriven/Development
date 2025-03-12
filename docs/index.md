@@ -54,19 +54,19 @@ The ADD Git workflow is strictly enforced by the [`.cursorrules`](cursorrules.md
 
 Development follows a structured phase approach using semantic versioning:
 
-| Phase   | Version Range | Focus               | Deliverables                                   |
-| ------- | ------------- | ------------------- | ---------------------------------------------- |
-| Config  | `v0.0.x`      | Project foundation  | Repository structure, dotfiles, dependencies   |
-| Project | `v0.1.x`      | Architecture        | Directory structure, interfaces, API contracts |
-| Data    | `v0.2.x`      | Data layer          | Models, schemas, migrations                    |
-| Tests   | `v0.3.x`      | Test infrastructure | Test framework, test suites                    |
-| Code    | `v0.4.x`      | Core functionality  | Business logic, service layer                  |
-| DevOps  | `v0.5.x`      | Infrastructure      | CI/CD, deployment, monitoring                  |
-| Public  | `v0.6.x`      | User interfaces     | Frontend, admin interfaces                     |
-| Money   | `v0.7.x`      | Revenue features    | Billing, payment processing                    |
-| Support | `v0.8.x`      | Customer service    | Documentation, support systems                 |
-| Scale   | `v0.9.x`      | Performance         | Optimization, scaling                          |
-| Release | `v1.0.0+`     | Production          | Stable release                                 |
+| Phase   | Version Range | Focus               | Deliverables                                                    |
+| ------- | ------------- | ------------------- | --------------------------------------------------------------- |
+| Config  | `v0.0.x`      | Project foundation  | Repository structure, dotfiles, dependencies, exploratory tests |
+| Project | `v0.1.x`      | Architecture        | Directory structure, interfaces, API contracts                  |
+| Data    | `v0.2.x`      | Data layer          | Models, schemas, migrations                                     |
+| Tests   | `v0.3.x`      | Test infrastructure | Test framework, test suites                                     |
+| Code    | `v0.4.x`      | Core functionality  | Business logic, service layer                                   |
+| DevOps  | `v0.5.x`      | Infrastructure      | CI/CD, deployment, monitoring                                   |
+| Public  | `v0.6.x`      | User interfaces     | Frontend, admin interfaces                                      |
+| Money   | `v0.7.x`      | Revenue features    | Billing, payment processing                                     |
+| Support | `v0.8.x`      | Customer service    | Documentation, support systems                                  |
+| Scale   | `v0.9.x`      | Performance         | Optimization, scaling                                           |
+| Release | `v1.0.0+`     | Production          | Stable release                                                  |
 
 Each phase:
 
@@ -87,6 +87,7 @@ ADD establishes a clear division of responsibilities:
 - Committing changes
 - Deploying solutions
 - Maintaining project structure
+- Validating dependencies with tests
 
 ### Human Editor Responsibilities
 

@@ -10,7 +10,7 @@ description: Current status and implementation plan for the ADD methodology
 
 **Organization**: [AgentDriven](https://github.com/AgentDriven)  
 **License**: MIT  
-**Current Version**: v0.0.5  
+**Current Version**: v0.0.17  
 **Current Phase**: Config  
 **Last Updated**: March 12, 2025
 

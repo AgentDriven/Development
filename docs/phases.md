@@ -35,6 +35,8 @@ Our development follows a structured phase approach using semantic versioning. T
 - Package/dependency management files
 - LICENSE file
 - Project structure documentation
+- Exploratory tests for key libraries and frameworks
+- Documentation of library evaluations
 
 **Definition of Done**:
 
@@ -42,6 +44,8 @@ Our development follows a structured phase approach using semantic versioning. T
 - All configuration files are properly set up
 - Documentation clearly explains project purpose and setup
 - Project dependencies are defined
+- Key libraries have been validated through exploratory tests
+- Test results and findings are documented
 
 **Example Tags**:
 

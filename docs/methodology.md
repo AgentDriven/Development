@@ -32,6 +32,7 @@ The Agent is responsible for ALL implementation tasks:
 - Committing changes
 - Deploying solutions
 - Maintaining project structure
+- Validating dependencies with tests
 
 #### Human Editor
 

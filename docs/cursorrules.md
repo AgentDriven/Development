@@ -1,7 +1,7 @@
 // "ADD" .cursorrules Agent Driven Development
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
-// Version: 0.0.16 - Last updated: 2024-06-19
+// Version: 0.0.17 - Last updated: 2024-03-12
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
@@ -17,6 +17,7 @@
 6. **ALWAYS** get explicit permission before advancing to next phase
 7. **ALWAYS** update version numbers in all files before cutting a new tag
 8. **ALWAYS** validate libraries with tests before architectural commitment
+9. **ALWAYS** verify system date when updating documentation dates
 
 ## 🚨 INITIALIZATION SEQUENCE
 
@@ -225,6 +226,7 @@ git tag -a v0.0.1 -m "Initial project setup"
 6. Maintain phase documentation
 7. Update roadmap quarterly
 8. Commit documentation with related code changes
+9. Verify all dates in documentation match the current system date
 
 ## 👥 AGENT-EDITOR RELATIONSHIP
 

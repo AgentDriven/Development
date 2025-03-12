@@ -29,24 +29,25 @@ Developed by the [AgentDriven](https://github.com/AgentDriven) organization, thi
 - **Git-Centric**: Git is our source of truth and progress tracker
 - **Phased Development**: Clear, sequential development phases
 - **Minimal, Production-Ready Code**: Quality over quantity
+- **Evidence-Based Decisions**: Libraries are validated with tests before adoption
 
 ## Development Phases
 
 Our development follows a structured phase approach using semantic versioning:
 
-| Phase   | Version Range | Focus               | Deliverables                                   |
-| ------- | ------------- | ------------------- | ---------------------------------------------- |
-| Config  | `v0.0.x`      | Project foundation  | Repository structure, dotfiles, dependencies   |
-| Project | `v0.1.x`      | Architecture        | Directory structure, interfaces, API contracts |
-| Data    | `v0.2.x`      | Data layer          | Models, schemas, migrations                    |
-| Tests   | `v0.3.x`      | Test infrastructure | Test framework, test suites                    |
-| Code    | `v0.4.x`      | Core functionality  | Business logic, service layer                  |
-| DevOps  | `v0.5.x`      | Infrastructure      | CI/CD, deployment, monitoring                  |
-| Public  | `v0.6.x`      | User interfaces     | Frontend, admin interfaces                     |
-| Money   | `v0.7.x`      | Revenue features    | Billing, payment processing                    |
-| Support | `v0.8.x`      | Customer service    | Documentation, support systems                 |
-| Scale   | `v0.9.x`      | Performance         | Optimization, scaling                          |
-| Release | `v1.0.0+`     | Production          | Stable release                                 |
+| Phase   | Version Range | Focus               | Deliverables                                                    |
+| ------- | ------------- | ------------------- | --------------------------------------------------------------- |
+| Config  | `v0.0.x`      | Project foundation  | Repository structure, dotfiles, dependencies, exploratory tests |
+| Project | `v0.1.x`      | Architecture        | Directory structure, interfaces, API contracts                  |
+| Data    | `v0.2.x`      | Data layer          | Models, schemas, migrations                                     |
+| Tests   | `v0.3.x`      | Test infrastructure | Test framework, test suites                                     |
+| Code    | `v0.4.x`      | Core functionality  | Business logic, service layer                                   |
+| DevOps  | `v0.5.x`      | Infrastructure      | CI/CD, deployment, monitoring                                   |
+| Public  | `v0.6.x`      | User interfaces     | Frontend, admin interfaces                                      |
+| Money   | `v0.7.x`      | Revenue features    | Billing, payment processing                                     |
+| Support | `v0.8.x`      | Customer service    | Documentation, support systems                                  |
+| Scale   | `v0.9.x`      | Performance         | Optimization, scaling                                           |
+| Release | `v1.0.0+`     | Production          | Stable release                                                  |
 
 ## How It Works
 
@@ -202,7 +203,7 @@ project-root/
 
 ## Current Status
 
-Current version: v0.0.6
+Current version: v0.0.17
 Current phase: Config
 Next milestone: Complete Config phase (v0.0.9)
 
