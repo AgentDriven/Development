@@ -2,17 +2,48 @@
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
 
-# AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
+# ⚠️ AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL - MANDATORY WORKFLOW ⚠️
 
 # =======================================
 
-# CRITICAL RULES - MUST BE FOLLOWED IN ALL INTERACTIONS
+# 🔴 CRITICAL RULES - MUST BE FOLLOWED IN ALL INTERACTIONS - NO EXCEPTIONS 🔴
 
 ## 🚫 DEVICE RULES - HIGHEST PRIORITY
 
 1. **NEVER create, edit or delete files outside the local project path - this includes home directory, root directory, and ANY system location**
 2. **ALWAYS request permission before suggesting installations or bulk operations**
 3. **USE Git for all file operations - commit frequently**
+4. **ADD PROTOCOL IS MANDATORY**: The Agent Driven Development protocol is not optional and must be followed exactly as specified
+   - Failure to follow ADD protocol will result in project corruption
+   - If unsure about any step, STOP and ask for clarification
+   - NEVER skip steps or create files without following the proper sequence
+
+## 🚨 INITIALIZATION SEQUENCE - MANDATORY FIRST STEPS 🚨
+
+**BEFORE CREATING ANY PROJECT FILES OR ARCHITECTURE, THE FOLLOWING STEPS MUST BE COMPLETED IN ORDER:**
+
+1. **VERIFY GIT**: Confirm git is initialized with `git status`
+
+   - If not initialized, run `git init` first
+   - If error occurs, STOP and request user assistance
+
+2. **ESTABLISH CONFIG PHASE**: No work on any other phase can begin until Config Phase is complete
+
+   - Config Phase (`v0.0.x`) must be fully completed before any architecture work
+   - All foundation files must be committed individually following the workflow sequence
+
+3. **VERIFICATION CHECKLIST**: Before proceeding beyond Config Phase, verify:
+
+   - Git repository is properly initialized
+   - README.md is created and committed
+   - .gitignore is created and committed
+   - Required dotfiles (.editorconfig, etc.) are created and committed
+   - Documentation directory structure is established
+   - Initial docs/journal.md entry is created and committed
+
+4. **EXPLICIT PERMISSION**: Request explicit permission from the Editor before advancing to Project Phase
+
+**VIOLATION OF THIS SEQUENCE WILL RESULT IN INVALID PROJECT STRUCTURE AND MUST BE AVOIDED AT ALL COSTS**
 
 ## 🔄 GIT WORKFLOW - MANDATORY
 
@@ -257,3 +288,34 @@ git tag -a v0.0.1 -m "Initial project setup"
 
 # And so on with the same pattern of checking status before and after commits
 ```
+
+## 🚨 CRITICAL REMINDER 🚨
+
+**NEVER CREATE MULTIPLE FILES WITHOUT COMMITTING EACH ONE INDIVIDUALLY**
+**ALWAYS FOLLOW THE MANDATORY WORKFLOW SEQUENCE FOR EVERY CHANGE**
+**PROCESS IS MORE IMPORTANT THAN SPEED - FOLLOW ADD PROTOCOL EXACTLY**
+
+## 📋 COMPLIANCE VERIFICATION
+
+At the beginning of each session, the Agent must:
+
+1. **VERIFY REPOSITORY STATE**: Run `git status` to check the current state
+2. **CONFIRM CURRENT PHASE**: Identify which development phase the project is in
+3. **REVIEW DOCUMENTATION**: Check docs/journal.md and docs/project.md for context
+4. **ACKNOWLEDGE PROTOCOL**: Explicitly state "I will follow ADD protocol for all changes"
+
+Before implementing any user request, the Agent must:
+
+1. **ASSESS COMPLIANCE**: Determine if the request can be implemented while following ADD
+2. **PLAN SEQUENCE**: Outline the specific steps that will be taken
+3. **VERIFY GIT FIRST**: Always check git status before making any changes
+4. **COMMIT INCREMENTALLY**: Create and commit one file at a time
+
+If at any point ADD protocol cannot be followed:
+
+1. **STOP IMMEDIATELY**: Do not proceed with the implementation
+2. **EXPLAIN THE ISSUE**: Clearly communicate why ADD cannot be followed
+3. **PROPOSE COMPLIANT ALTERNATIVE**: Suggest an approach that adheres to ADD
+4. **REQUEST GUIDANCE**: Ask the Editor for direction on how to proceed
+
+**REMEMBER: ADD PROTOCOL IS NOT OPTIONAL - IT IS THE FOUNDATION OF PROJECT INTEGRITY**
