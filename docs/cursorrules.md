@@ -1,7 +1,7 @@
 // "ADD" .cursorrules Agent Driven Development
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
-// Version: 0.0.12 - Last updated: 2024-03-12
+// Version: 0.0.13 - Last updated: 2024-03-12
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
@@ -49,8 +49,8 @@ Each phase should be completed sequentially when applicable:
 
 1. `v0.0.x`: **CONFIG** - Project foundation
 2. `v0.1.x`: **PROJECT** - Architecture design
-3. `v0.2.x`: **DATA** - Data layer implementation
-4. `v0.3.x`: **TESTS** - Test infrastructure
+3. `v0.2.x`: **TESTS** - Test infrastructure for API contracts
+4. `v0.3.x`: **DATA** - Data layer implementation
 5. `v0.4.x`: **CODE** - Core functionality
 6. `v0.5.x`: **DEVOPS** - Infrastructure
 7. `v0.6.x`: **PUBLIC** - User interfaces
