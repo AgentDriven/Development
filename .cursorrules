@@ -17,6 +17,9 @@
 ## 🔄 GIT WORKFLOW - MANDATORY
 
 - **Agent commits changes (not the user) whenever possible**
+- **ALWAYS check git status before committing to ensure all changes are properly staged**
+- **ENSURE there are no unstaged changes when committing - working directory should be clean after commit**
+- **VERIFY all new files are tracked and included in commits - no untracked files should be left behind**
 - **Development follows a structured phase approach using semantic versioning:**
   1. `v0.0.x`: Config - Project foundation (README, dotfiles, dependencies)
   2. `v0.1.x`: Project - Architecture (file structure, method stubs, API contracts)
@@ -216,32 +219,41 @@
 3. Commits should pass all tests
 4. Commit messages should explain what and why, not how
 5. Reference issue numbers when applicable
-6. **Use the `docs:` prefix for documentation-only commits**
-7. **Include documentation updates in feature commits when applicable**
-8. **Always update docs/journal.md in a separate commit with the prefix `journal:`**
+6. **ALWAYS run `git status` before committing to verify all changes are properly staged**
+7. **ENSURE all new files are added with `git add` and no untracked files remain**
+8. **VERIFY there are no unstaged changes when committing - working directory should be clean**
+9. **Use the `docs:` prefix for documentation-only commits**
+10. **Include documentation updates in feature commits when applicable**
+11. **Always update docs/journal.md in a separate commit with the prefix `journal:`**
 
 ## Example Commit and Tag Flow
 
 ```bash
 # Config phase
+git status # Check status before committing
+git add . # Stage all changes
+git status # Verify all changes are staged
 git commit -m "feat: Initialize repository structure"
+git status # Verify working directory is clean
+
+git status # Check status before committing
+git add .gitignore .editorconfig
+git status # Verify all changes are staged
 git commit -m "feat: Add .gitignore and .editorconfig"
+git status # Verify working directory is clean
+
+git status # Check status before committing
+git add README.md
+git status # Verify all changes are staged
 git commit -m "docs: Create initial README.md"
+
+git status # Check status before committing
+git add docs/journal.md
+git status # Verify all changes are staged
 git commit -m "journal: Document initial setup decisions and challenges"
+git status # Verify working directory is clean
+
 git tag -a v0.0.1 -m "Initial project setup"
-git commit -m "feat: Add dependency management files"
-git commit -m "docs: Update docs/project.md with current status"
-git commit -m "journal: Record completion of configuration tasks"
-git tag -a v0.0.9 -m "Complete Config phase"
 
-# Project phase
-git commit -m "docs: Update docs/project.md to reflect Project phase start"
-git tag -a v0.1.0 -m "Begin Project phase"
-git commit -m "feat: Define directory structure"
-git commit -m "docs: Create API specifications"
-git commit -m "feat: Add interface definitions"
-git commit -m "journal: Document architecture decisions and trade-offs"
-git tag -a v0.1.9 -m "Complete Project phase"
-
-# And so on...
+# And so on with the same pattern of checking status before and after commits
 ```
