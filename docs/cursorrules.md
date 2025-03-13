@@ -1,7 +1,7 @@
 // "ADD" .cursorrules Agent Driven Development
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
-// Version: 0.0.17 - Last updated: 2024-03-12
+// Version: 0.0.18 - Last updated: 2024-06-25
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
@@ -18,6 +18,7 @@
 7. **ALWAYS** update version numbers in all files before cutting a new tag
 8. **ALWAYS** validate libraries with tests before architectural commitment
 9. **ALWAYS** verify system date when updating documentation dates
+10. **ALWAYS** review project documentation (README.md, docs/project.md, docs/journal.md) at the start of every interaction
 
 ## 🚨 INITIALIZATION SEQUENCE
 
@@ -208,6 +209,11 @@ git tag -a v0.0.1 -m "Initial project setup"
 3. Check git status first
 4. Group related files from same phase in commits
 5. For new dependencies, create exploratory tests first
+6. If encountering technical issues:
+   - Document the issue completely before attempting solutions
+   - Propose specific debugging steps
+   - Seek explicit permission before any architectural changes
+   - Never abandon established approaches without approval
 
 **IF ADD CANNOT BE FOLLOWED:**
 
@@ -255,6 +261,42 @@ git tag -a v0.0.1 -m "Initial project setup"
 - NEVER tag text with "Editor:" (exclusive to humans)
 - Treat Editor comments as immutable
 - Editor comments format: "> **Editor**"
+
+## 🛠️ MANDATORY TROUBLESHOOTING PROTOCOL
+
+**WHEN ENCOUNTERING ANY TECHNICAL CHALLENGE:**
+
+1. **DOCUMENT FIRST**: Create or update `docs/issues/[issue-name].md` with:
+
+   - Detailed description of the issue
+   - Code snippets or logs demonstrating the problem
+   - Context of when/how the issue occurs
+   - Impact on project goals
+
+2. **ANALYZE THOROUGHLY**: Document potential causes with evidence for each theory
+
+3. **PROPOSE DEBUGGING PLAN**: List specific, incremental steps to investigate each theory
+
+4. **SEEK APPROVAL**: Present the issue and debugging plan to the Editor before proceeding
+
+5. **DOCUMENT FINDINGS**: Update the issue document with results from each debugging step
+
+6. **PROPOSE SOLUTIONS**: Only after thorough debugging, propose solutions with:
+
+   - Minimal changes that preserve existing architecture
+   - Clear rationale for each proposed change
+   - Impact assessment on other components
+
+7. **AWAIT EXPLICIT DIRECTION**: Do not implement any solution without explicit approval
+
+**🔴 CRITICAL REQUIREMENTS:**
+
+- **NEVER** abandon established approaches without explicit permission
+- **NEVER** rewrite or refactor code without documented justification and approval
+- **NEVER** introduce new dependencies to solve an issue without approval
+- **ALWAYS** preserve the existing architecture unless explicitly directed otherwise
+- **ALWAYS** prefer incremental fixes over rewrites
+- **ALWAYS** document all debugging steps and findings
 
 ## 🚫 CRITICAL REMINDERS
 
