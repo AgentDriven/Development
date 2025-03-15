@@ -1,7 +1,7 @@
 // "ADD" .cursorrules Agent Driven Development
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
-// Version: 0.0.19 - Last updated: 2024-06-25
+// Version: 0.0.20 - Last updated: 2024-06-25
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
