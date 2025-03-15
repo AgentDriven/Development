@@ -1,7 +1,7 @@
 // "ADD" .cursorrules Agent Driven Development
 // -------------------------------------
 // A set of guidelines for consistent, high-quality project development
-// Version: 0.0.18 - Last updated: 2024-06-25
+// Version: 0.0.19 - Last updated: 2024-06-25
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
@@ -19,6 +19,46 @@
 8. **ALWAYS** validate libraries with tests before architectural commitment
 9. **ALWAYS** verify system date when updating documentation dates
 10. **ALWAYS** review project documentation (README.md, docs/project.md, docs/journal.md) at the start of every interaction
+11. **NEVER** work directly on the main branch
+12. **ALWAYS** create feature or fix branches for all changes
+13. **ALWAYS** prototype complex implementations before committing to an approach
+
+## 🌿 GIT BRANCHING STRATEGY
+
+**MANDATORY BRANCHING RULES:**
+
+1. **PROTECTED MAIN BRANCH**:
+
+   - Main branch is protected and should never be directly modified
+   - All changes to main must come through pull requests/merges
+   - Main branch should always be in a deployable state
+
+2. **BRANCH TYPES**:
+
+   - `feature/[feature-name]`: For new features
+   - `fix/[issue-description]`: For bug fixes
+   - `spike/[topic]`: For experimental prototyping
+   - `docs/[topic]`: For documentation-only changes
+   - `refactor/[description]`: For code improvements without behavior changes
+
+3. **BRANCH WORKFLOW**:
+
+   - Create branch from main: `git checkout -b [branch-type]/[description]`
+   - Commit changes to branch following ADD phases
+   - Push branch to remote: `git push -u origin [branch-name]`
+   - Create pull request when feature/fix is complete
+   - Delete branch after merge: `git branch -d [branch-name]`
+
+4. **BRANCH ISOLATION**:
+
+   - Each branch should focus on a single feature, fix, or concern
+   - Avoid mixing unrelated changes in a single branch
+   - Keep branches short-lived (days, not weeks)
+
+5. **COMMIT FREQUENCY**:
+   - Commit early and often within your branch
+   - Each commit should represent a logical unit of work
+   - Follow the commit message format: `type: message`
 
 ## 🚨 INITIALIZATION SEQUENCE
 
@@ -38,6 +78,11 @@
    - Document dependency evaluations in `docs/dependencies.md` with reasons for inclusion/exclusion
    - Create foundation files (README, .gitignore, etc.)
    - Establish documentation structure
+   - **PROTOTYPE COMPLEX IMPLEMENTATIONS**:
+     - Create isolated spike solutions for challenging technical aspects
+     - Document findings in `docs/spikes/[topic].md`
+     - Evaluate multiple approaches with pros/cons
+     - Identify and mitigate technical risks before proceeding
 
 3. **VERIFY CONFIG COMPLETION**:
 
@@ -45,6 +90,9 @@
    - Market analysis completed and documented in `docs/market-analysis.md`
    - Dependencies evaluated and documented in `docs/dependencies.md`
    - Exploratory tests for key libraries committed
+   - **Spike solutions for complex implementations completed**
+   - **Technical feasibility documented**
+   - **Risk assessment completed**
    - README.md committed
    - .gitignore committed
    - Required dotfiles committed
@@ -62,6 +110,9 @@ Each phase should be completed sequentially when applicable:
    - Market analysis (existing solutions, value proposition)
    - Dependency evaluation (libraries, frameworks, tools)
    - Exploratory testing of critical dependencies
+   - **Spike solutions for complex implementations**
+   - **Technical feasibility documentation**
+   - **Risk assessment and mitigation planning**
    - Project structure and documentation
    - Version control and configuration files
 
@@ -300,6 +351,10 @@ git tag -a v0.0.1 -m "Initial project setup"
 
 ## 🚫 CRITICAL REMINDERS
 
+**NEVER WORK DIRECTLY ON THE MAIN BRANCH**
+
+**ALWAYS CREATE FEATURE OR FIX BRANCHES FOR ALL CHANGES**
+
 **NEVER COMMIT CHANGES THAT CROSS DEVELOPMENT PHASES**
 
 **ALWAYS GROUP RELATED FILES FROM THE SAME PHASE**
@@ -311,6 +366,20 @@ git tag -a v0.0.1 -m "Initial project setup"
 - Some projects may not require all phases (e.g., no MONEY phase for open source)
 - Phase skipping requires explicit Editor approval and documentation
 - Document reasoning for skipped phases in journal.md
+
+**ALWAYS PROTOTYPE COMPLEX IMPLEMENTATIONS BEFORE COMMITTING TO AN APPROACH**
+
+- Create spike solutions for challenging technical aspects
+- Document findings and approach decisions
+- Evaluate multiple approaches with pros/cons
+- Identify and mitigate technical risks
+
+**ALWAYS APPLY THE ADD PROCESS AT THE FEATURE LEVEL**
+
+- Each feature should go through its own mini-phases
+- Create dedicated documentation for each feature
+- Ensure thorough testing of each feature
+- Complete the feature checklist before integration
 
 **ALWAYS SYNCHRONIZE VERSION NUMBERS BEFORE TAGGING**
 
@@ -327,3 +396,67 @@ git tag -a v0.0.1 -m "Initial project setup"
 **PROCESS IS MORE IMPORTANT THAN SPEED**
 
 **ADD PROTOCOL IS NOT OPTIONAL**
+
+## 🧩 FEATURE-LEVEL ADD PROCESS
+
+**EVERY FEATURE MUST FOLLOW THE ADD PROCESS:**
+
+1. **FEATURE BRANCH**:
+
+   - Create a dedicated branch: `git checkout -b feature/[feature-name]`
+   - All work for the feature must stay in this branch
+
+2. **FEATURE CONFIG**:
+
+   - Document feature requirements in `docs/features/[feature-name].md`
+   - Identify dependencies and technical challenges
+   - Create spike solutions for complex aspects
+   - Document findings and approach decisions
+
+3. **FEATURE PROJECT**:
+
+   - Design feature architecture
+   - Define interfaces and contracts
+   - Create method stubs with documentation
+   - Document integration points with existing code
+
+4. **FEATURE TESTS**:
+
+   - Create test suite for the feature
+   - Write tests that validate feature requirements
+   - Include edge cases and error conditions
+   - Ensure tests fail appropriately before implementation
+
+5. **FEATURE IMPLEMENTATION**:
+
+   - Implement feature following test requirements
+   - Ensure all tests pass
+   - Document any deviations from original plan
+
+6. **FEATURE REVIEW**:
+
+   - Self-review implementation against requirements
+   - Update documentation to reflect final implementation
+   - Prepare for pull request/merge
+
+7. **FEATURE INTEGRATION**:
+   - Create pull request to merge feature into main
+   - Address any feedback or issues
+   - Merge only when feature is complete and tested
+
+**FEATURE DOCUMENTATION REQUIREMENTS:**
+
+- Feature description and purpose
+- Technical approach and justification
+- Dependencies and integration points
+- Testing strategy and coverage
+- Known limitations or future improvements
+
+**FEATURE COMPLETION CHECKLIST:**
+
+- All requirements implemented
+- All tests passing
+- Documentation updated
+- Code reviewed
+- No known bugs or issues
+- Performance considerations addressed
