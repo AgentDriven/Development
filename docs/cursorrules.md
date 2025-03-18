@@ -9,7 +9,9 @@ keywords: development, workflow, guidelines, AI, agent-driven, best practices
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
-> **MANDATORY WORKFLOW FOR ALL AI AGENT INTERACTIONS**
+Agent Driven Development (ADD) is a methodology for AI-assisted software development that combines the power of AI agents with human oversight. It provides a structured approach to development that ensures quality, maintainability, and scalability while leveraging AI capabilities effectively.
+
+> **Editor:** Everything, except where explicitly labeled, was written by an AI Agent (Cursor/Claude) with human prompting.
 
 ## 📡 USAGE
 
@@ -17,6 +19,8 @@ keywords: development, workflow, guidelines, AI, agent-driven, best practices
 # Download .cursorrules file
 curl -o .cursorrules https://agentdriven.dev/cursorrules.md
 ```
+
+> **MANDATORY WORKFLOW FOR ALL AI AGENT INTERACTIONS**
 
 ## 🔴 CRITICAL RULES - ZERO EXCEPTIONS
 

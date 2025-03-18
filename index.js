@@ -67,7 +67,7 @@ function createHtml(content, title, metadata = {}) {
         .prose blockquote {
             margin-top: 1.6em;
             margin-bottom: 1.6em;
-            padding: 0.5em 1em;
+            padding: 0em 1em;
             font-style: italic;
             border-left-width: 0.25rem;
             border-left-color: #e5e7eb;
