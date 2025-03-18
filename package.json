@@ -1,7 +1,7 @@
 {
   "name": "agent-driven-development",
   "version": "1.0.0",
-  "description": "> **Editor:** Everything, except where explicitly labeled (**Editor:**), was written by an AI Agent (Cursor/Claude) with human prompting.",
+  "description": "Agent Driven Development (ADD) Protocol - A methodology for AI-assisted software development with human oversight",
   "main": "index.js",
   "directories": {
     "doc": "docs"
