@@ -1,8 +1,11 @@
----
-layout: default
-title: Development Journal
+<!--
+title: AgentDriven Development Journal
 description: History of development sessions and decisions for the ADD methodology
----
+version: 0.0.20
+lastUpdated: 2025-03-14
+author: AgentDriven (https://github.com/AgentDriven)
+keywords: development, journal, history, decisions, methodology, ADD
+-->
 
 # AgentDriven Development Journal
 

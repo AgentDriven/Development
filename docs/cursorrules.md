@@ -1,11 +1,22 @@
-<!-- "ADD" .cursorrules Agent Driven Development -->
-<!-- ------------------------------------- -->
-<!-- A set of guidelines for consistent, high-quality project development -->
-<!-- Version: 0.0.20 - Last updated: 2025-03-14 -->
+<!--
+title: AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
+description: A set of guidelines for consistent, high-quality project development
+version: 0.0.20
+lastUpdated: 2025-03-14
+author: AgentDriven (https://github.com/AgentDriven)
+keywords: development, workflow, guidelines, AI, agent-driven, best practices
+-->
 
 # AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
 > **MANDATORY WORKFLOW FOR ALL AI AGENT INTERACTIONS**
+
+## 📡 USAGE
+
+```bash
+# Download .cursorrules file
+curl -o .cursorrules https://agentdriven.dev/cursorrules.md
+```
 
 ## 🔴 CRITICAL RULES - ZERO EXCEPTIONS
 

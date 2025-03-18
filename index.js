@@ -2,29 +2,33 @@ const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
 const MarkdownIt = require('markdown-it');
-const markdownItAnchor = require('markdown-it-anchor');
+const anchor = require('markdown-it-anchor');
 
-// Initialize markdown parser
+// Initialize markdown-it with options
 const md = new MarkdownIt({
     html: true,
     breaks: true,
     linkify: true,
-    typographer: true,
-    comments: true
-}).use(markdownItAnchor, {
+    typographer: true
+}).use(anchor, {
     permalink: false,
     level: 2,
     slugify: s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 });
 
 // HTML template function
-function createHtml(content, title) {
+function createHtml(content, title, metadata = {}) {
+    const metaTags = Object.entries(metadata)
+        .map(([key, value]) => `<meta name="${key}" content="${value}">`)
+        .join('\n    ');
+    
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title}</title>
+    ${metaTags}
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .prose {
@@ -78,6 +82,7 @@ function createHtml(content, title) {
             border-radius: 0.25rem;
         }
         .prose pre {
+            position: relative;
             color: #e5e7eb;
             background-color: #1f2937;
             overflow-x: auto;
@@ -150,6 +155,27 @@ function createHtml(content, title) {
         .prose tbody td {
             padding: 0.5714286em;
         }
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            background-color: #374151;
+            color: #e5e7eb;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .prose pre:hover .copy-button {
+            opacity: 1;
+        }
+        .copy-button:hover {
+            background-color: #4b5563;
+        }
+        .copy-button.copied {
+            background-color: #059669;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -215,6 +241,25 @@ function createHtml(content, title) {
                 navMobile.appendChild(mobileLink);
                 navDesktop.appendChild(desktopLink);
             });
+
+            // Add copy buttons to code blocks
+            document.querySelectorAll('pre').forEach(block => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                block.appendChild(button);
+
+                button.addEventListener('click', async () => {
+                    const code = block.querySelector('code').textContent;
+                    await navigator.clipboard.writeText(code);
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                        button.classList.remove('copied');
+                    }, 2000);
+                });
+            });
         });
     </script>
 </body>
@@ -225,18 +270,30 @@ function createHtml(content, title) {
 async function processMarkdown(filePath) {
     const content = await fs.readFile(filePath, 'utf8');
     
-    // Remove frontmatter if present
-    const contentWithoutFrontmatter = content.replace(/^---[\s\S]*?---/, '');
+    // Extract metadata from HTML comments
+    const metadataMatch = content.match(/<!--\s*([\s\S]*?)\s*-->/);
+    const metadata = {};
     
-    // Process HTML comments - remove them completely
+    if (metadataMatch) {
+        const metadataContent = metadataMatch[1];
+        metadataContent.split('\n').forEach(line => {
+            const [key, value] = line.split(':').map(s => s.trim());
+            if (key && value) {
+                metadata[key] = value;
+            }
+        });
+    }
+    
+    // Remove frontmatter and metadata comments
+    const contentWithoutFrontmatter = content.replace(/^---[\s\S]*?---/, '');
     const processedContent = contentWithoutFrontmatter.replace(/<!--[\s\S]*?-->/g, '');
     
-    // Extract title from first h1 heading
+    // Extract title from first h1 heading if not in metadata
     const titleMatch = processedContent.match(/^#\s+(.+)$/m);
-    const title = titleMatch ? titleMatch[1] : 'Documentation';
+    const title = metadata.title || (titleMatch ? titleMatch[1] : 'Documentation');
     
     const html = md.render(processedContent);
-    return createHtml(html, title);
+    return createHtml(html, title, metadata);
 }
 
 // Function to build static site
