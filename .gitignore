@@ -126,4 +126,17 @@ target/
 # Jekyll site
 docs/_site/
 docs/.sass-cache/
-docs/Gemfile.lock 
+docs/Gemfile.lock
+
+# Dependencies
+node_modules/
+
+# Build output
+_site/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db 
