@@ -1,5 +1,6 @@
 const express = require('express');
-const fs = require('fs').promises;
+const fs = require('fs');
+const fsPromises = require('fs').promises;
 const path = require('path');
 const MarkdownIt = require('markdown-it');
 const anchor = require('markdown-it-anchor');
@@ -19,17 +20,76 @@ const md = new MarkdownIt({
     slugify: s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 });
 
+// Function to get all markdown files recursively
+async function getMarkdownFiles(dir = 'docs') {
+    try {
+        const files = await fsPromises.readdir(dir);
+        const markdownFiles = [];
+        
+        for (const file of files) {
+            const fullPath = path.join(dir, file);
+            const stat = await fsPromises.stat(fullPath);
+            
+            if (stat.isDirectory()) {
+                const subFiles = await getMarkdownFiles(fullPath);
+                markdownFiles.push(...subFiles);
+            } else if (file.endsWith('.md')) {
+                const relativePath = path.relative('docs', fullPath);
+                markdownFiles.push(relativePath);
+            }
+        }
+        
+        return markdownFiles;
+    } catch (err) {
+        console.error('Error reading directory:', err);
+        return [];
+    }
+}
+
+// Function to process markdown file
+async function processMarkdown(filePath) {
+    const content = await fsPromises.readFile(filePath, 'utf8');
+    
+    // Extract metadata from HTML comments
+    const metadataMatch = content.match(/<!--\s*([\s\S]*?)\s*-->/);
+    const metadata = {};
+    
+    if (metadataMatch) {
+        const metadataContent = metadataMatch[1];
+        metadataContent.split('\n').forEach(line => {
+            const [key, value] = line.split(':').map(s => s.trim());
+            if (key && value) {
+                metadata[key] = value;
+            }
+        });
+    }
+    
+    // Remove frontmatter and metadata comments
+    const contentWithoutFrontmatter = content.replace(/^---[\s\S]*?---/, '');
+    const processedContent = contentWithoutFrontmatter.replace(/<!--[\s\S]*?-->/g, '');
+    
+    // Extract title from first h1 heading if not in metadata
+    const titleMatch = processedContent.match(/^#\s+(.+)$/m);
+    const title = metadata.title || (titleMatch ? titleMatch[1] : 'Documentation');
+    
+    const html = md.render(processedContent);
+    return createHtml(html, title, metadata, path.basename(filePath));
+}
+
 // HTML template function
-function createHtml(content, title, metadata = {}) {
+async function createHtml(content, title, metadata = {}, currentFile = '') {
     const metaTags = Object.entries(metadata)
         .map(([key, value]) => `<meta name="${key}" content="${value}">`)
         .join('\n    ');
-    
+
     // Extract GitHub URL from homepage or repository field
-    const githubUrl = packageJson.homepage || 
-                     (packageJson.repository && packageJson.repository.url) || 
-                     'https://github.com/AgentDriven';
-    
+    const githubUrl = packageJson.homepage ||
+        (packageJson.repository && packageJson.repository.url) ||
+        'https://github.com/AgentDriven';
+
+    // Get all markdown files
+    const files = await getMarkdownFiles();
+
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -262,37 +322,67 @@ function createHtml(content, title, metadata = {}) {
             const navMobile = document.getElementById('nav-mobile');
             const navDesktop = document.getElementById('nav-desktop');
             
-            headings.forEach(heading => {
-                // Create mobile link
-                const mobileLink = document.createElement('a');
-                mobileLink.href = '#' + heading.id;
-                mobileLink.textContent = heading.textContent;
-                mobileLink.className = 'block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors';
+            // Add file links
+            const currentFile = '${currentFile}';
+            const files = ${JSON.stringify(await getMarkdownFiles())};
+            
+            files.forEach(file => {
+                const isCurrentFile = file === currentFile;
+                const fileName = file.replace('.md', '');
+                const displayName = fileName.split('/').pop().charAt(0).toUpperCase() + fileName.split('/').pop().slice(1);
                 
-                // Create desktop link
-                const desktopLink = document.createElement('a');
-                desktopLink.href = '#' + heading.id;
-                desktopLink.textContent = heading.textContent;
-                desktopLink.className = 'block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors';
+                // Create mobile file link
+                const mobileFileLink = document.createElement('a');
+                mobileFileLink.href = fileName === 'index' ? './' : fileName + '.html';
+                mobileFileLink.textContent = displayName;
+                mobileFileLink.className = 'block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors' + 
+                    (isCurrentFile ? ' bg-gray-100' : '');
                 
-                // Add active state on scroll
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Remove active state from all links
-                            document.querySelectorAll('#nav-mobile a, #nav-desktop a').forEach(a => {
-                                a.classList.remove('bg-gray-100');
+                // Create desktop file link
+                const desktopFileLink = document.createElement('a');
+                desktopFileLink.href = fileName === 'index' ? './' : fileName + '.html';
+                desktopFileLink.textContent = displayName;
+                desktopFileLink.className = 'block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors' + 
+                    (isCurrentFile ? ' bg-gray-100' : '');
+                
+                navMobile.appendChild(mobileFileLink);
+                navDesktop.appendChild(desktopFileLink);
+                
+                // Only add heading links for current file
+                if (isCurrentFile) {
+                    headings.forEach(heading => {
+                        // Create mobile heading link
+                        const mobileLink = document.createElement('a');
+                        mobileLink.href = (fileName === 'index' ? '' : fileName + '.html') + '#' + heading.id;
+                        mobileLink.textContent = heading.textContent;
+                        mobileLink.className = 'block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors pl-8';
+                        
+                        // Create desktop heading link
+                        const desktopLink = document.createElement('a');
+                        desktopLink.href = (fileName === 'index' ? '' : fileName + '.html') + '#' + heading.id;
+                        desktopLink.textContent = heading.textContent;
+                        desktopLink.className = 'block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors pl-8';
+                        
+                        // Add active state on scroll
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    // Remove active state from all links
+                                    document.querySelectorAll('#nav-mobile a, #nav-desktop a').forEach(a => {
+                                        a.classList.remove('bg-gray-100');
+                                    });
+                                    // Add active state to both links
+                                    mobileLink.classList.add('bg-gray-100');
+                                    desktopLink.classList.add('bg-gray-100');
+                                }
                             });
-                            // Add active state to both links
-                            mobileLink.classList.add('bg-gray-100');
-                            desktopLink.classList.add('bg-gray-100');
-                        }
+                        }, { threshold: 0.5 });
+                        
+                        observer.observe(heading);
+                        navMobile.appendChild(mobileLink);
+                        navDesktop.appendChild(desktopLink);
                     });
-                }, { threshold: 0.5 });
-                
-                observer.observe(heading);
-                navMobile.appendChild(mobileLink);
-                navDesktop.appendChild(desktopLink);
+                }
             });
 
             // Add copy buttons to code blocks
@@ -319,53 +409,33 @@ function createHtml(content, title, metadata = {}) {
 </html>`;
 }
 
-// Function to process markdown file
-async function processMarkdown(filePath) {
-    const content = await fs.readFile(filePath, 'utf8');
-    
-    // Extract metadata from HTML comments
-    const metadataMatch = content.match(/<!--\s*([\s\S]*?)\s*-->/);
-    const metadata = {};
-    
-    if (metadataMatch) {
-        const metadataContent = metadataMatch[1];
-        metadataContent.split('\n').forEach(line => {
-            const [key, value] = line.split(':').map(s => s.trim());
-            if (key && value) {
-                metadata[key] = value;
-            }
-        });
-    }
-    
-    // Remove frontmatter and metadata comments
-    const contentWithoutFrontmatter = content.replace(/^---[\s\S]*?---/, '');
-    const processedContent = contentWithoutFrontmatter.replace(/<!--[\s\S]*?-->/g, '');
-    
-    // Extract title from first h1 heading if not in metadata
-    const titleMatch = processedContent.match(/^#\s+(.+)$/m);
-    const title = metadata.title || (titleMatch ? titleMatch[1] : 'Documentation');
-    
-    const html = md.render(processedContent);
-    return createHtml(html, title, metadata);
-}
-
 // Function to build static site
 async function build() {
     try {
         // Create _site directory if it doesn't exist
-        await fs.mkdir('_site', { recursive: true });
+        await fsPromises.mkdir('_site', { recursive: true });
         
-        // Process cursorrules.md
-        const cursorRulesHtml = await processMarkdown('docs/cursorrules.md');
-        await fs.writeFile('_site/cursorrules.html', cursorRulesHtml);
+        // Get all markdown files recursively
+        const files = await getMarkdownFiles();
         
-        // Process journal.md if it exists
-        try {
-            const journalHtml = await processMarkdown('docs/journal.md');
-            await fs.writeFile('_site/journal.html', journalHtml);
-        } catch (err) {
-            console.log('No journal.md found, skipping...');
+        // Process each markdown file
+        for (const file of files) {
+            // Process markdown to HTML
+            const html = await processMarkdown(path.join('docs', file));
+            const outputPath = path.join('_site', file.replace('.md', '.html'));
+            
+            // Create necessary directories
+            await fsPromises.mkdir(path.dirname(outputPath), { recursive: true });
+            await fsPromises.writeFile(outputPath, html);
+            
+            // Copy markdown file
+            const mdOutputPath = path.join('_site', file);
+            await fsPromises.mkdir(path.dirname(mdOutputPath), { recursive: true });
+            await fsPromises.copyFile(path.join('docs', file), mdOutputPath);
         }
+
+        // Create a .nojekyll file to prevent GitHub Pages from using Jekyll
+        await fsPromises.writeFile(path.join('_site', '.nojekyll'), '');
         
         console.log('Build completed successfully!');
     } catch (err) {
@@ -374,63 +444,47 @@ async function build() {
     }
 }
 
-// Express server setup
-const app = express();
-const port = process.env.PORT || 3000;
-
-// Serve static files from docs directory
-app.use(express.static('docs'));
-
-// Serve raw markdown files
-app.get('/cursorrules.md', async (req, res) => {
-    try {
-        const content = await fs.readFile('docs/cursorrules.md', 'utf8');
-        res.setHeader('Content-Type', 'text/markdown');
-        res.send(content);
-    } catch (err) {
-        res.status(500).send('Error reading markdown file');
-    }
-});
-
-app.get('/journal.md', async (req, res) => {
-    try {
-        const content = await fs.readFile('docs/journal.md', 'utf8');
-        res.setHeader('Content-Type', 'text/markdown');
-        res.send(content);
-    } catch (err) {
-        res.status(500).send('Error reading markdown file');
-    }
-});
-
-// Serve HTML versions
-app.get('/', async (req, res) => {
-    try {
-        const html = await processMarkdown('docs/cursorrules.md');
-        res.send(html);
-    } catch (err) {
-        res.status(500).send('Error processing markdown');
-    }
-});
-
-app.get('/journal', async (req, res) => {
-    try {
-        const html = await processMarkdown('docs/journal.md');
-        res.send(html);
-    } catch (err) {
-        res.status(500).send('Error processing markdown');
-    }
-});
-
-// Check if we're being run directly
+// Main execution
 if (require.main === module) {
     const args = process.argv.slice(2);
-    if (args[0] === 'build') {
+    const command = args[0] || 'serve';
+    const port = process.env.PORT || 3000;
+
+    if (command === 'build') {
         build();
     } else {
-        app.listen(port, () => {
-            console.log(`Server running at http://localhost:${port}`);
+        // Build first, then serve
+        build().then(() => {
+            const app = express();
+            
+            // Serve static files from _site directory
+            app.use(express.static('_site'));
+            
+            // Handle HTML requests
+            app.get('/*', (req, res) => {
+                const filePath = req.path.endsWith('/') ? req.path + 'index.html' : req.path;
+                const htmlPath = filePath.endsWith('.html') ? filePath : filePath + '.html';
+                const fullPath = path.join(__dirname, '_site', htmlPath);
+                
+                // Try to serve the HTML file
+                if (fs.existsSync(fullPath)) {
+                    res.sendFile(fullPath);
+                } else {
+                    // Try to serve index.html for the path
+                    const indexPath = path.join(__dirname, '_site', path.dirname(htmlPath), 'index.html');
+                    if (fs.existsSync(indexPath)) {
+                        res.sendFile(indexPath);
+                    } else {
+                        res.status(404).sendFile(path.join(__dirname, '_site', '404.html'));
+                    }
+                }
+            });
+            
+            app.listen(port, () => {
+                console.log(`Server running at http://localhost:${port}`);
+            });
         });
     }
 }
 
-module.exports = { build, app }; 
+module.exports = { build }; 

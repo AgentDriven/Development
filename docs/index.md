@@ -17,7 +17,7 @@ Agent Driven Development (ADD) is a methodology for AI-assisted software develop
 
 ```bash
 # Download .cursorrules file
-curl -o .cursorrules https://agentdriven.dev/cursorrules.md
+curl -o .cursorrules https://agentdriven.dev/index.md
 ```
 
 > **MANDATORY WORKFLOW FOR ALL AI AGENT INTERACTIONS**
