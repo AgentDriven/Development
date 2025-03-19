@@ -1,138 +1,140 @@
----
-layout: default
-title: Agent Driven Development
-description: A structured methodology for AI-assisted software development
----
+<!--
+title: AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
+description: A set of guidelines for consistent, high-quality project development
+version: 0.0.20
+lastUpdated: 2025-03-14
+author: AgentDriven (https://github.com/AgentDriven)
+keywords: development, workflow, guidelines, AI, agent-driven, best practices
+-->
 
-# Agent Driven Development (ADD)
+# AGENT DRIVEN DEVELOPMENT (ADD) PROTOCOL
 
-Agent Driven Development (ADD) is a structured approach to software development that leverages AI agents and human developers working in tandem. The methodology establishes a systematic, regimented process through a set of rules ([`.cursorrules`](cursorrules.md)) that enforce thorough planning, documentation, testing, and strict version control, with the AI Agent implementing all aspects under the supervision and direction of the human Editor.
+Agent Driven Development (ADD) is a methodology for AI-assisted software development that combines the power of AI agents with human oversight. It provides a structured approach to development that ensures quality, maintainability, and scalability while leveraging AI capabilities effectively.
 
-> **Editor:** Everything, except where explicitly labeled (**Editor:**), was written by an AI Agent (Cursor/Claude) with human prompting.
+> **Editor:** Everything, except where explicitly labeled, was written by an AI Agent (Cursor/Claude) with human prompting.
 
-## Usage
+## 📡 USAGE
 
-Copy the Agent Driven Development `.cursorrules` file to your project.
-
-```
-curl -o .cursorrules https://agentdriven.dev/cursorrules.md
-```
-
-## What Makes ADD Different
-
-At its core, ADD is defined by three key elements that work together:
-
-1. **Enforced Git Workflow**: The [`.cursorrules`](cursorrules.md) file mandates specific Git practices that both the AI Agent and human Editor must follow, ensuring consistent version control and project history.
-
-2. **Phased Development with Semantic Versioning**: Development progresses through clearly defined phases, each with specific deliverables and completion criteria, tracked through semantic versioning.
-
-3. **Clear Agent-Editor Relationship**: The methodology establishes distinct roles and responsibilities between the AI Agent (implementer) and human Editor (director).
-
-## The `.cursorrules` File: Enforcing the Methodology
-
-The [`.cursorrules`](cursorrules.md) file is the cornerstone of ADD, containing mandatory rules that AI assistants must follow. This file:
-
-- Defines the Git workflow that must be followed
-- Establishes the phased development approach
-- Outlines the Agent-Editor relationship
-- Mandates documentation maintenance requirements
-- Sets phase completion requirements
-
-When an AI assistant (like Claude or GPT) encounters this file in your repository, it automatically follows these rules, ensuring consistent application of the methodology.
-
-## Git Workflow: The Foundation of ADD
-
-The ADD Git workflow is strictly enforced by the [`.cursorrules`](cursorrules.md) file:
-
-- **Status Verification**: The Agent must always check git status before committing
-- **Clean Working Directory**: No unstaged changes should remain when committing
-- **Comprehensive Tracking**: All new files must be tracked and included in commits
-- **Semantic Commit Messages**: Commits follow a structured format explaining what and why
-- **Documentation Synchronization**: Documentation updates are committed alongside code changes
-
-## Phased Development: Structured Progress
-
-Development follows a structured phase approach using semantic versioning:
-
-| Phase   | Version Range | Focus               | Deliverables                                                    |
-| ------- | ------------- | ------------------- | --------------------------------------------------------------- |
-| Config  | `v0.0.x`      | Project foundation  | Repository structure, dotfiles, dependencies, exploratory tests |
-| Project | `v0.1.x`      | Architecture        | Directory structure, interfaces, API contracts                  |
-| Data    | `v0.2.x`      | Data layer          | Models, schemas, migrations                                     |
-| Tests   | `v0.3.x`      | Test infrastructure | Test framework, test suites                                     |
-| Code    | `v0.4.x`      | Core functionality  | Business logic, service layer                                   |
-| DevOps  | `v0.5.x`      | Infrastructure      | CI/CD, deployment, monitoring                                   |
-| Public  | `v0.6.x`      | User interfaces     | Frontend, admin interfaces                                      |
-| Money   | `v0.7.x`      | Revenue features    | Billing, payment processing                                     |
-| Support | `v0.8.x`      | Customer service    | Documentation, support systems                                  |
-| Scale   | `v0.9.x`      | Performance         | Optimization, scaling                                           |
-| Release | `v1.0.0+`     | Production          | Stable release                                                  |
-
-Each phase:
-
-- Has a clear definition of done
-- Requires explicit permission before advancing
-- Is tagged with appropriate semantic version
-- Must have complete documentation and tests
-
-## Agent-Editor Relationship: Clear Division of Responsibilities
-
-ADD establishes a clear division of responsibilities:
-
-### AI Agent Responsibilities
-
-- Writing documentation
-- Creating tests
-- Implementing code
-- Committing changes
-- Deploying solutions
-- Maintaining project structure
-- Validating dependencies with tests
-
-### Human Editor Responsibilities
-
-- Problem definition
-- Market context
-- Solution direction
-- Approval for phase transitions
-- Feedback on implementations
-- Domain expertise
-
-## Documentation
-
-- [Methodology Overview](methodology.html) - Core principles and Agent-Editor relationship
-- [Development Phases](phases.html) - Detailed explanation of all development phases
-- [Project Status](project.html) - Current status and implementation plan
-- [Development Journal](journal.html) - History of development sessions and decisions
-- [Roadmap](plans/roadmap.html) - Future plans and goals
-- [GitHub Repository](https://github.com/AgentDriven/Development)
-- [.cursorrules File](https://agentdriven.dev/cursorrules.md) - The core file that guides AI agents
-
-## Project Structure
-
+```bash
+# Download .cursorrules file
+curl -o .cursorrules https://agentdriven.dev/index.md
 ```
 
-project-root/
-├── .cursorrules # Symlink to docs/cursorrules.md
-├── docs/ # Documentation directory (maintained by the Agent)
-│ ├── cursorrules.md # AI assistant guidelines (main file)
-│ ├── project.md # Project manifest
-│ ├── phases.md # Development phase definitions
-│ ├── journal.md # Development history
-│ └── plans/ # Planning documents
-├── .gitignore # Git ignore rules
-├── .editorconfig # Editor configuration
-├── LICENSE # MIT License
-└── README.md # Project overview
+> **MANDATORY WORKFLOW FOR ALL AI AGENT INTERACTIONS**
 
+## 🔴 CRITICAL RULES - ZERO EXCEPTIONS
+
+1. **NEVER** create/edit files outside project directory
+2. **ALWAYS** request permission for installations/bulk operations
+3. **ALWAYS** use Git for all file operations
+4. **NEVER** skip initialization sequence
+5. **NEVER** commit changes across different development phases
+6. **ALWAYS** get explicit permission before advancing to next phase
+7. **ALWAYS** update version numbers in all files before cutting a new tag
+8. **ALWAYS** validate libraries with tests before architectural commitment
+9. **ALWAYS** verify system date when updating documentation dates
+10. **ALWAYS** review project documentation (README.md, docs/project.md, docs/journal.md) at the start of every interaction
+11. **NEVER** work directly on the main branch
+12. **ALWAYS** use feature branches with proper prefixes (`feature/`, `fix/`, `spike/`)
+13. **ALWAYS** prototype complex implementations before committing to an approach
+
+## 🚨 INITIALIZATION SEQUENCE
+
+**BEFORE ANY PROJECT WORK:**
+
+1. **VERIFY GIT**: Run `git status` (initialize if needed)
+
+2. **START WITH CONFIG PHASE**:
+
+   - Market analysis and dependency evaluation
+   - Create exploratory tests for key libraries
+   - Document findings in `docs/dependencies.md` and `docs/market-analysis.md`
+   - **PROTOTYPE COMPLEX IMPLEMENTATIONS**:
+     - Create spike solutions in `spike/[topic]` branches
+     - Document findings in `docs/spikes/[topic].md`
+     - Evaluate multiple approaches with pros/cons
+     - Assess technical risks before proceeding
+
+3. **VERIFY CONFIG COMPLETION**:
+   - Git repository initialized
+   - Market analysis and dependency documentation completed
+   - Exploratory tests and spike solutions committed
+   - Technical feasibility and risk assessment documented
+   - Foundation files (README, .gitignore, etc.) committed
+
+## 🔄 DEVELOPMENT PHASES
+
+Each phase should be completed sequentially:
+
+1. `v0.0.x`: **CONFIG** - Market analysis, dependencies, spikes, project setup
+2. `v0.1.x`: **PROJECT** - Architecture, interfaces, API contracts, method stubs
+3. `v0.2.x`: **TESTS** - Test framework, unit/integration tests, fixtures
+4. `v0.3.x`: **DATA** - Models, schemas, migrations, validation
+5. `v0.4.x`: **CODE** - Business logic, services, error handling
+6. `v0.5.x`: **DEVOPS** - CI/CD, deployment, security
+7. `v0.6.x`: **PUBLIC** - User interfaces, responsive design
+8. `v0.7.x`: **MONEY** - Billing, payments, subscriptions
+9. `v0.8.x`: **SUPPORT** - Documentation, support systems, feedback
+10. `v0.9.x`: **SCALE** - Performance, caching, load balancing
+11. `v1.0.0+`: **RELEASE** - Final testing, documentation, launch
+
+**PHASE RULES**:
+
+- Group related files from same phase in commits
+- Complete all requirements before advancing
+- Get explicit permission before advancing or skipping phases
+- Every feature should follows its own through development phases before being merged
+
+## 📋 COMMIT WORKFLOW
+
+**FOR EVERY CHANGE**:
+
+1. **PLAN** → **STATUS** → **GROUP** → **ADD** → **VERIFY** → **COMMIT** → **CONFIRM**
+
+```bash
+git status
+git add <files>
+git status  # Verify staging
+git commit -m "type: message"
+git status  # Verify clean state
 ```
 
-> **Editor:** The `docs` directory is the Agent's responsibility to maintain. All documentation and planning files should be kept here, making it easier for both humans and AI to find and update project information.
+**BEFORE TAGGING**:
 
-## License
+1. Update version numbers in all files
+2. Commit version updates: `git commit -m "chore: Update version to vX.Y.Z"`
+3. Create tag: `git tag -a vX.Y.Z -m "Description of release"`
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/AgentDriven/Development/blob/main/LICENSE) file for details.
+## 🛠️ TROUBLESHOOTING PROTOCOL
 
-```
+**WHEN ENCOUNTERING TECHNICAL CHALLENGES**:
 
-```
+1. **DOCUMENT** the issue in `docs/issues/[issue-name].md`
+2. **ANALYZE** potential causes with evidence
+3. **PROPOSE** specific debugging steps
+4. **SEEK APPROVAL** before proceeding
+5. **DOCUMENT FINDINGS** from debugging
+6. **PROPOSE SOLUTIONS** that preserve existing architecture
+7. **AWAIT EXPLICIT DIRECTION** before implementing
+
+**CRITICAL REQUIREMENTS**:
+
+- Never abandon established approaches without permission
+- Document all debugging steps and findings
+
+## 📚 DOCUMENTATION REQUIREMENTS
+
+- Update `docs/journal.md` with each session
+- Maintain documentation for market analysis, dependencies, and features
+- Document exploratory tests and spike solutions
+- Commit documentation with related code changes
+
+## 🚫 CRITICAL REMINDERS
+
+**NEVER WORK DIRECTLY ON THE MAIN BRANCH**
+
+**ALWAYS PROTOTYPE COMPLEX IMPLEMENTATIONS FIRST**
+
+**APPLY THE ADD PROCESS AT BOTH PROJECT AND FEATURE LEVELS**
+
+**PROCESS IS MORE IMPORTANT THAN SPEED**
