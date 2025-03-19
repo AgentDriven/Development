@@ -1,6 +1,6 @@
 {
   "name": "agent-driven-development",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Agent Driven Development Protocol",
   "main": "index.js",
   "directories": {
