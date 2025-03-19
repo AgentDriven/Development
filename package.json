@@ -1,6 +1,6 @@
 {
   "name": "agent-driven-development",
-  "version": "1.0.0",
+  "version": "0.0.20",
   "description": "Agent Driven Development (ADD) Protocol - A methodology for AI-assisted software development with human oversight",
   "main": "index.js",
   "directories": {
@@ -33,9 +33,9 @@
     "best-practices"
   ],
   "author": "AgentDriven (https://github.com/AgentDriven)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AgentDriven/Development/issues"
   },
-  "homepage": "https://github.com/AgentDriven/Development#readme"
+  "homepage": "https://github.com/AgentDriven/Development"
 }
